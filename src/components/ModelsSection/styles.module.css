@@ -1,6 +1,6 @@
 .section {
   padding: 6rem 1.5rem;
-  background: black;
+  background: #fafafa;
 }
 
 .container {
@@ -9,9 +9,11 @@
 }
 
 .heading {
-  font-size: 2.25rem;
-  margin-bottom: 3rem;
+  font-size: 2.4rem;
+  font-weight: 600;
   text-align: center;
+  margin-bottom: 3.5rem;
+  letter-spacing: -0.02em;
 }
 
 .grid {
@@ -20,34 +22,38 @@
   gap: 2rem;
 }
 
+/* Card */
 .card {
-  background: rgb(37, 36, 36);
-  border-radius: 16px;
+  background: #ffffff;
+  border-radius: 14px;
   padding: 2rem;
   text-decoration: none;
   color: inherit;
 
-  box-shadow:
-    0 10px 30px rgba(158, 158, 158, 0.08);
+  border: 1px solid #eaeaea;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
 
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow:
-    5px 5px 5px 5px rgba(0, 253, 241, 0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-color: #cfd8dc;
 }
 
-.card h3 {
-  font-size: 1.2rem;
+/* Typography */
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
-.card p {
+.cardDescription {
   font-size: 0.95rem;
   line-height: 1.6;
-  opacity: 0.85;
+  color: #555;
 }

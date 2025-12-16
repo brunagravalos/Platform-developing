@@ -1,6 +1,6 @@
 .section {
   padding: 6rem 1.5rem;
-  background: black;
+  background: #ffffff;
 }
 
 .container {
@@ -8,13 +8,37 @@
   margin: 0 auto;
 }
 
-h2 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
+/* Heading matches Models section */
+.heading {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 3rem;
+  letter-spacing: -0.02em;
 }
 
-p {
+/* Text container for better readability */
+.textBlock {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Paragraph styling */
+.textBlock p {
   font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
+  line-height: 1.75;
+  color: #444;
+  margin-bottom: 1.75rem;
+}
+
+/* Subtle professional link */
+.link {
+  color: #4f46e5; /* same indigo accent as optional card accent */
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(79, 70, 229, 0.3);
+}
+
+.link:hover {
+  border-bottom-color: rgba(79, 70, 229, 0.7);
 }

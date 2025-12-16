@@ -1,7 +1,7 @@
 .hero {
   position: relative;
-  height: 70vh;
-  background-image: url('/img/hero-bg.png');
+  height: 80vh;
+  background-image: url('/img/hero-bg2.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -12,7 +12,7 @@
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(25, 25, 25, 0.6)
 }
 
 .content {
@@ -43,3 +43,9 @@
   color: white;
   border-bottom: 1px solid white;
 }
+.cta:hover {
+  color: #00FFFF;
+  border-color: #00FFFF;
+}
+
+
