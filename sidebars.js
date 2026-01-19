@@ -32,8 +32,9 @@ const sidebars = {
           label: 'QuantifyHW model',
           items: [
             'models/quantify-drivers/index',
-            'models/quantify-drivers/data',
             'models/quantify-drivers/usage',
+            'models/quantify-drivers/data',
+            
           ],
         },
         {

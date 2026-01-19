@@ -4,27 +4,53 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+
+
+/* =========================
+   LIGHT MODE (default)
+   ========================= */
+
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #2563eb;
+  --ifm-color-primary-dark: #1e40af;
+  --ifm-color-primary-light: #60a5fa;
+
+  --ifm-background-color: #fafafa;
+  --ifm-background-surface-color: #f8fafc;
+
+  --ifm-font-color-base: #0f172a;
+  --ifm-font-color-secondary: #475569;
+
+  --ifm-card-background-color: #ffffff;
+  --ifm-card-border: 1px solid #eaeaea;
+  --ifm-card-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+/* =========================
+   DARK MODE
+   ========================= */
+
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #60a5fa;
+  --ifm-color-primary-dark: #3b82f6;
+  --ifm-color-primary-light: #93c5fd;
+
+  --ifm-background-color: #000000;
+  --ifm-background-surface-color: #020617;
+
+  --ifm-font-color-title: white;
+  --ifm-font-color-base: #a7a7a7;
+  --ifm-font-color-secondary: #9ca3af;
+
+  --ifm-card-background-color: #0a0a0a;
+  --ifm-card-border: 1px solid #2e2e2e;
+  --ifm-card-box-shadow: 0 6px 20px rgba(109, 109, 109, 0.08);
+
+
+
+
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
