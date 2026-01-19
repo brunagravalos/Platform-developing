@@ -7,16 +7,7 @@ const MODELS = [
     description: 'Classical and modern population dynamics models.',
     link: '/docs/models/quantify-drivers',
   },
-  {
-    title: 'Reaction–Diffusion Systems',
-    description: 'Pattern formation and spatial dynamics.',
-    link: '/docs/models/reaction-diffusion',
-  },
-  {
-    title: 'Image Segmentation',
-    description: 'Variational and computer vision models.',
-    link: '/docs/models/image-segmentation',
-  },
+  
 ];
 
 export default function ModelsSection() {
