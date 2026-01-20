@@ -4,7 +4,10 @@
  * work well for content-centric websites.
  */
 
-
+/* Import a nice Serif font for headings */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap');
 
 /* =========================
    LIGHT MODE (default)
@@ -27,6 +30,8 @@
 
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-font-family-base: 'Inter', sans-serif;  /* Clean and readable for paragraphs */
+  --ifm-heading-font-family: 'Outfit', sans-serif;
 }
 
 /* =========================
@@ -54,3 +59,4 @@
 
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+

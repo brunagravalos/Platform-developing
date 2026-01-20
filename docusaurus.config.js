@@ -20,10 +20,8 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-site.example.com',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  url: 'https://brunagravalos.github.io', 
+  baseUrl: '/Platform-developing/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -88,12 +86,7 @@ const config = {
           src: 'img/expect-logo.png',
         },
         items: [
-          {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Tutorial',
-          },
+          
           
           {
             href: 'https://github.com/facebook/docusaurus',
@@ -108,10 +101,7 @@ const config = {
           {
             title: 'Docs',
             items: [
-              {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
+              
             ],
           },
           {

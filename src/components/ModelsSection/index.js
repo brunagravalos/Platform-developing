@@ -12,7 +12,7 @@ const MODELS = [
 
 export default function ModelsSection() {
   return (
-    <section className={styles.section}>
+    <section id="models-section" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.heading}>Models</h2>
 

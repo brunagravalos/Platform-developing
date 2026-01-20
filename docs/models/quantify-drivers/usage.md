@@ -2,14 +2,14 @@
 title: How to use
 ---
 ## 1. Installation
-### 1.1 Setup Repository
+### Setup Repository
 The project repository is available in github at this link. To get started, clone the project and navigate to the directory:
 ```
 git clone repository_url
 cd repository_name
 ```
 
-### 1.2 Environment Setup
+### Environment Setup
 
 This project uses uv for dependency management.
 1. **Install uv** (if not installed):
