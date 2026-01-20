@@ -276,3 +276,18 @@
   }
   .scrollLine { margin: 0 auto 2rem auto; }
 }
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh; /* Covers the bottom 20% of the screen */
+  z-index: 5; /* Above background, below text/interactives */
+  pointer-events: none;
+  
+  /* Fades from Transparent -> Pure Black (#050505) */
+  background: linear-gradient(to bottom, 
+    rgba(5, 5, 5, 0) 0%, 
+    #050505 100%
+  );
+}

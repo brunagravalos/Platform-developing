@@ -37,7 +37,7 @@ source .venv/bin/activate
 The workflow for this project follows a pipeline designed to replicate the methodology from the associated paper. The process is divided into four distinct stages:
 - **Data Loading:** Retrieves the local-scale (ERA5-Land) and large-scale (ERA5) datasets, applies preprocessing (standardization, lagging), and prepares the PyTorch DataLoaders.
 
-- **Training:** Initializes the Hybrid Model (MLP + ConvNext), handles class imbalance with weighted loss, and trains the model using site-specific hyperparameters.
+- **Training:** Initializes the Hybrid Model (MLP + ConvNext), handles class imbalance with weighted loss, and trains the model using site-specific hyperparameters. The files with the fine-tuned hyperparameters are provided in the folder `data_files` (in the repository itself).
 
 - **Evaluation:** Loads the trained model weights and computes performance metrics (extreme vs. non-extreme accuracy) on the test set.
 
@@ -135,7 +135,7 @@ This group defines the absolute paths to input data and output directories. Thes
     - **Input Data Files (ERA5 & Auxiliaries)**
         - `file_g500`: Path to Geopotential Height at 500hPa anomalies (large-scale predictor).
         - `file_g200`: Path to Geopotential Height at 200hPa anomalies (large-scale predictor).
-        - `file_psl`: Path to Mean Sea Level Pressure anomalies.
+        - `file_psl`: Path to Mean Sea Level Pressure anomalies (large-scale predictor).
         - `file_CO2: Path to daily CO2 data, used for climate signal adjustment/detrending.
         - `file_local_scale`: Path to the site-specific ERA5-Land file containing local soil variables and the binary extreme event labels (e.g., 90p_cordoba...).
         - `file_spei` / `file_spi`: Paths to the directories containing Standardized Precipitation (Evapotranspiration) Index data. Only used if use_spei is set to True in the dataset config.

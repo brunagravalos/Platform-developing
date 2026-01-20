@@ -40,9 +40,7 @@ export default function Home() {
       
       <main>
         <HeroSection />
-        <PlatformSection />
         <ModelsSection />
-        
       </main>
     </Layout>
   );

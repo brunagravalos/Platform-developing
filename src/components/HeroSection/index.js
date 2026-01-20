@@ -99,6 +99,7 @@ export default function HeroSection() {
           Our goal is to empower the community to not only reproduce our findings, but to build upon them.
         </p>
       </div>
+      <div className={styles.bottomFade} />
     </section>
   );
 }
