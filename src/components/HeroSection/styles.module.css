@@ -1,21 +1,39 @@
-/* --- LAYOUT & BASE --- */
+/* --- OUTER CONTAINER (The Taller Canvas) --- */
 .hero {
   position: relative;
-  height: 95vh; /* Immersive height */
+  /* INCREASE HEIGHT: This is the only thing that changes size. 
+     It allows the content to "bleed" down. */
+  height: 140vh; 
   width: 100%;
-  overflow: hidden;
-  background-color: #050505; /* Pure black/grey for high contrast */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 8%;
+  overflow: hidden; /* Cuts off anything past 140vh */
+  background-color: #050505;
+  /* Removed flex properties from here because the wrapper handles alignment */
 }
 
-/* --- LAYER 1: BACKGROUND --- */
+/* --- INNER WRAPPER (The "Original" Hero) --- */
+.viewportLock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* This forces the layout to behave exactly like the 100vh version */
+  height: 100vh; 
+  
+  display: flex;
+  align-items: center; /* Vertically Centers text in the first screen */
+  justify-content: flex-start;
+  padding-left: 8%;
+  
+  /* IMPORTANT: Allow elements inside (Earth) to hang out the bottom */
+  overflow: visible; 
+  z-index: 10;
+}
+
+/* --- LAYERS --- */
+
 .bgGradient {
   position: absolute;
   inset: 0;
-  /* A very subtle, deep radial gradient to give space "volume" */
   background: radial-gradient(
     circle at 70% 80%,
     rgba(20, 25, 40, 1) 0%,
@@ -24,58 +42,54 @@
   z-index: 0;
 }
 
-/* --- LAYER 2: EARTH --- */
+/* Earth is now positioned relative to the 100vh viewportLock, 
+   so 'bottom: -25%' puts it in the EXACT same place as before. */
 .earthLayer {
   position: absolute;
-  bottom: -25%;
+  bottom: -25%; 
   right: -15%;
-  width: 70vw; /* Large scale */
+  width: 70vw;
   height: 70vw;
   border-radius: 50%;
   background-image: url('/img/nasa-earth.jpg');
   background-size: 109%;
   background-position: center;
-  /* Monochrome + Blue Tint = "Scientific Instrument" look */
   filter: grayscale(100%) brightness(0.6) sepia(1) hue-rotate(180deg) saturate(1.5);
   opacity: 0.5;
   z-index: 1;
-  /* Slow, majestic rotation */
   animation: orbitRotate 350s linear infinite; 
-  /* Soft edges */
   box-shadow: inset 0 0 100px 50px #050505; 
 }
 
-/* --- LAYER 3: WAVES (The "Net") --- */
 .waveContainer {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  mix-blend-mode: screen; /* Makes lines glow slightly */
+  mix-blend-mode: screen; 
   color: whitesmoke;
 }
 
 .waveSvg {
   width: 100%;
   height: 100%;
+  /* Optional: Scale Y if you want lines to reach deeper, 
+     otherwise remove this to keep original look */
   transform: scaleY(1.2); 
 }
 
-/* Animate the dash offset to make lines look like they are flowing */
 .waveGroup path {
-  stroke-dasharray: 10 10; /* Dashed lines look more like "data" */
   animation: flowDash 60s linear infinite;
 }
 
-/* --- LAYER 4: CONTENT --- */
+/* --- CONTENT --- */
 .content {
   position: relative;
   z-index: 10;
   max-width: 600px;
 }
 
-/* --- TYPOGRAPHY: "Manrope" --- */
-/* The Tag: Technical & Minimal */
+/* --- TYPOGRAPHY --- */
 .monoTag {
   display: flex;
   align-items: center;
@@ -83,7 +97,7 @@
   font-family: 'Manrope', sans-serif;
   font-size: 0.7rem;
   font-weight: 500;
-  letter-spacing: 0.25em; /* Extremely wide tracking */
+  letter-spacing: 0.25em; 
   color: rgba(255, 255, 255, 0.5);
   margin-bottom: 2rem;
 }
@@ -94,57 +108,54 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* The Title: Editorial Contrast */
 .title {
   font-family: 'Manrope', sans-serif;
   font-size: clamp(3.5rem, 6vw, 5rem);
   line-height: 1.1;
-  font-weight: 600; /* Standard Weight */
+  font-weight: 600; 
   color: white;
   margin-bottom: 1.5rem;
 }
 
 .thinText {
-  font-weight: 200; /* Extra Light */
+  font-weight: 200; 
   opacity: 0.9;
-  font-style: italic; /* Adds that "Artisty" touch */
-  /* Optional: Text Gradient */
+  font-style: italic; 
   background: linear-gradient(90deg, #ffffff, #94a3b8);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding-right: 0.2em;
+  padding-right: 0.2em; /* Keeps the 'm' from being cut off */
 }
 
 .subtitle {
   font-family: 'Manrope', sans-serif;
   font-size: 1.1rem;
-  line-height: 1.8; /* Breathable lines */
-  color: #a1a1aa; /* Zinc 400 */
+  line-height: 1.8; 
+  color: #a1a1aa; 
   margin-bottom: 3.5rem;
   font-weight: 300;
   max-width: 480px;
 }
 
-/* --- BUTTONS: Architectural & Glass --- */
+/* --- BUTTONS --- */
 .buttonGroup {
   display: flex;
   align-items: center;
   gap: 2rem;
 }
 
-/* Primary: Frosted Glass, Sharp Borders */
 .btnPrimary {
   position: relative;
   padding: 14px 32px;
-  background: rgba(255, 255, 255, 0.03); /* Almost clear */
+  background: rgba(255, 255, 255, 0.03); 
   border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px); /* The Frosted Effect */
+  backdrop-filter: blur(8px); 
   color: white;
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
   font-size: 0.95rem;
   letter-spacing: 0.05em;
-  border-radius: 4px; /* Small radius = Modern/Tech */
+  border-radius: 4px; 
   text-decoration: none !important;
   transition: all 0.3s ease;
   overflow: hidden;
@@ -157,7 +168,6 @@
   box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
-/* Secondary: Pure Link */
 .btnSecondary {
   color: #d4d4d8;
   font-family: 'Manrope', sans-serif;
@@ -165,7 +175,7 @@
   font-weight: 400;
   text-decoration: none !important;
   transition: color 0.2s;
-  border-bottom: 1px solid transparent; /* Prepare for hover */
+  border-bottom: 1px solid transparent; 
 }
 
 .btnSecondary:hover {
@@ -186,23 +196,83 @@
 
 /* Mobile Responsiveness */
 @media (max-width: 996px) {
+  /* On mobile, we might want to relax the lock or adjust heights */
   .hero {
-    padding-left: 0;
+    height: 110vh; /* Less drastic height on mobile */
+  }
+  .viewportLock {
     justify-content: center;
     text-align: center;
+    padding-left: 0;
   }
   .earthLayer {
     width: 100vw;
     height: 100vw;
     bottom: -15%;
     right: -20%;
-    opacity: 0.3; /* Fade it out more on mobile so text reads */
+    opacity: 0.3; 
   }
-  .monoTag {
-    justify-content: center;
-  }
+  .monoTag { justify-content: center; }
   .tagLine { display: none; }
-  .buttonGroup {
-    justify-content: center;
+  .buttonGroup { justify-content: center; }
+}
+
+/* ... Keep all your existing CSS ... */
+
+/* --- NEW: Bottom Overlay --- */
+.aboutOverlay {
+  position: absolute;
+  bottom: 10vh; /* Sits 10% up from the very bottom */
+  left: 8%; /* Aligns with the title above */
+  z-index: 10;
+  max-width: 550px;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 80px; /* Length of the connector line */
+  background: linear-gradient(to bottom, 
+    rgba(255, 255, 255, 0), 
+    rgba(255, 255, 255, 0.5), 
+    rgba(255, 255, 255, 0)
+  );
+  margin-bottom: 2rem;
+  /* Optional: Center the line if you prefer, or keep left aligned */
+}
+
+.aboutText {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #cbd5e1; /* Soft grey text */
+  font-weight: 300;
+  backdrop-filter: blur(4px); /* Optional: slight blur */
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.inlineLink {
+  color: #7dd3fc;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(125, 211, 252, 0.3);
+  transition: all 0.2s;
+}
+
+.inlineLink:hover {
+  color: white;
+  border-color: white;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 996px) {
+  .aboutOverlay {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    width: 100%;
   }
+  .scrollLine { margin: 0 auto 2rem auto; }
 }
