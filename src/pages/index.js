@@ -1,43 +1,29 @@
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+import React, { useEffect } from 'react';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import HomepageFeatures from '@site/src/components/HomepageFeatures';
 import HeroSection from '../components/HeroSection';
-import PlatformSection from '../components/PlatformSection';
-
-import Heading from '@theme/Heading';
-import styles from './index.module.css';
 import ModelsSection from '../components/ModelsSection';
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+
+  // src/pages/index.js
+useEffect(() => {
+  document.body.classList.add('home-page');
+  const handleScroll = () => {
+    if (window.scrollY > 10) document.body.classList.add('has-scrolled');
+    else document.body.classList.remove('has-scrolled');
+  };
+  window.addEventListener('scroll', handleScroll);
+  return () => {
+    document.body.classList.remove('home-page');
+    document.body.classList.remove('has-scrolled');
+    window.removeEventListener('scroll', handleScroll);
+  };
+}, []);
+
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      
+    <Layout title={`Hello from ${siteConfig.title}`} description="EXPECT Platform">
       <main>
         <HeroSection />
         <ModelsSection />

@@ -64,12 +64,12 @@ export default function HeroSection() {
         <div className={styles.content}>
           <div className={styles.monoTag}>
             <span className={styles.tagLine} />
-            A REPRODUCIBILITY STANDARD
+            A REPRODUCIBILITY STANDARD.
           </div>
 
           <h1 className={styles.title}>
             The Open <br />
-            <span className={styles.thinText}>Platform.</span>
+            <span className={styles.thinText}>Platform</span>
           </h1>
 
           <p className={styles.subtitle}>
@@ -77,7 +77,7 @@ export default function HeroSection() {
           </p>
 
           <div className={styles.buttonGroup}>
-            <Link className={styles.btnPrimary} to="/docs/models/intro">
+            <Link className={styles.btnPrimary} to="#models-section">
               Explore Models
             </Link>
             <Link className={styles.btnSecondary} to="https://expect-project.eu/">

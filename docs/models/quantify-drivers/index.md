@@ -3,7 +3,7 @@ title: Quantifying atmospheric and land drivers of hot temperature extremes
 sidebar_label: Overview
 ---
 
-This repository (link) contains the implementation of the Explainable Artificial Intelligence (XAI) framework developed in the study "[Quantifying atmospheric and land drivers of hot temperature extremes through explainable Artificial Intelligence](https://egusphere.copernicus.org/preprints/2025/egusphere-2025-5392/)".  
+This repository (link) contains the implementation of the Explainable Artificial Intelligence (XAI) framework developed in the study [Quantifying atmospheric and land drivers of hot temperature extremes through explainable Artificial Intelligence](https://egusphere.copernicus.org/preprints/2025/egusphere-2025-5392/).  
 
 ### Scientific Objective
 
@@ -30,7 +30,6 @@ To move beyond black-box prediction, the framework employs Expected Gradients, w
     - **Driver Dominance**: Determining the role of the atmospheric circulation in driving the event and the modulation effect by the land conditions.
     - **Spatial Patterns**: Identifying which specific geographical regions of the atmospheric fields contributed most to the event.   
     - **Time evolution:** Determining the evolution of the importance of the different drivers as an extreme event develops. 
-
     - **Long-term Trends**: Isolating the signal of anthropogenic forcing via CO2​ relevance and trends in the importance of atmospheric circulation and soil moisture in the evaluation period.  
 
 ### Scope

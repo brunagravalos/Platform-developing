@@ -90,7 +90,7 @@ conf/
 | `site` | The geographical site to model. Supported sites: `cordoba`, `lyon`, `marrakech`, `belgrado`, `stockholm`, `hannover`. | `cordoba` |
 | `dataset` | Defines variables, date ranges, and lag settings for ERA5 and ERA5-Land data. | `default` |  
 | `paths` | Defines the locations of input NetCDF files and output directories. | `marenostrum` |
-| `hyperparameters` | Specific training settings (learning rate, weight decay, batch size) for the selected site. | `default` |
+| `hyperparameters` | Specific training settings (learning rate, weight decay) for the selected site. | `default` |
 
 
 
@@ -123,7 +123,7 @@ This group defines the physical variables and temporal structure of the data. Ke
     - `start_lag`: (int) The starting lag for the ERA5 predictor variables.
     - `lags_era5`: (int) The number of lag steps to include.
 
-- **Drought Indices (Optional)**:
+- **Drought Indices (in developing)**:
     - `use_spei`: (bool) If True, includes SPEI/SPI indices in the model.
     - `spei_spi`: Type of index (`"spei"` or `"spi"`).
     - `scales_spei`: List of time scales (e.g., `['30', '60']`).
@@ -153,7 +153,6 @@ This group defines the absolute paths to input data and output directories. Thes
 These control the training dynamics. If `default_hypms` is `True`, the system loads optimized parameters from `site_hypms`:
     - `lr`: Learning rate (range: `1e-5` to `1e-3`).
     - `w_decay`: Weight decay for regularization.
-    - `batch_size`: Must be one of `[16, 32, 64]`.
     - `minority_weight_multiplier`: Multiplier to handle class imbalance (1.0 to 10.0).
 If `default_hypms` is `False`, the data loading script will use the optimized values from the folder `data_files/HYPMS_optimization_results`.
 

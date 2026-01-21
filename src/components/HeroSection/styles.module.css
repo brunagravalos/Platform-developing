@@ -102,11 +102,7 @@
   margin-bottom: 2rem;
 }
 
-.tagLine {
-  width: 40px;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.3);
-}
+
 
 .title {
   font-family: 'Manrope', sans-serif;
@@ -290,4 +286,14 @@
     rgba(5, 5, 5, 0) 0%, 
     #050505 100%
   );
+}
+
+/* --- ADD OR FIX THIS CLASS --- */
+.tagLine {
+  display: block;       /* Ensures the span acts like a box, not text */
+  width: 40px;          /* The length of the line */
+  height: 2px;          /* Thickness (1px can be too faint on high-res screens) */
+  background-color: #ffffff5d; /* Cyan Color */
+  border-radius: 2px;   /* Slight rounding */
+  
 }
