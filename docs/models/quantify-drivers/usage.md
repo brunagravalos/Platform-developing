@@ -196,9 +196,12 @@ uv run python "$SCRIPT_PATH" seed=$CURRENT_SEED site=marrakech
 
 ```
 
-## 3. Plots
+## 3. Visualization & Analysis
 
-To visualize the results the project provides two notebooks (`ensamble_processing.ipynb` and `main_plots.ipynb`). This notebooks assume that you have run the model for all sites and the mentioned list of seeds. You can edit both lists in these notebooks to adapt it to the results you obtained, but these are the seeds assumed for the paper. To run the notebooks you can create the appropiate kernel the following way:
+To reproduce the figures from the paper, the project provides two notebooks. These are designed to aggregate the results from the multi-seed ensemble and generate plots.
+
+To run the notebooks, ensure you have the project installed as a kernel:
+
 ```
 # Install the kernel
 uv run python -m ipykernel install --user --name quantifydrivers --display-name "Python (quantifydrivers)"
@@ -206,14 +209,22 @@ uv run python -m ipykernel install --user --name quantifydrivers --display-name 
 # Install the project in editable mode
 uv pip install -e .
 ```
-Then, in the notebook you have to make sure the selected kernel is the one created (in this case it would be *(Python (quantifydrivers))* ).
+*Select the **Python (quantifydrivers)** kernel when opening the notebooks.*
 
-The notebook `ensemble_processing.ipynb` will get the results from the list of seeds mentioned before, and use the results to obtain performance metrics and SHAP explanibility results that combine this different results.
+### A. Ensemble Aggregation (`ensemble_processing.ipynb`)
+Since the model is trained on 20 different seeds to ensure robustness, this notebook acts as the aggregator. It iterates through the results of all seeds defined in your configuration and performs two key tasks:
 
-It will also generate the plot of the mean of the losses for all the ensamble.
+    - **Metric Aggregation:** It computes the mean and standard deviation for performance metrics (Accuracy, F1-Score, Precision, Recall) and SHAP values across the entire ensemble.
 
-**PLOTS??**
-The notebook `main_plots.ipynb` produces ROC curves plots, area under curve plots and mean shap values plots.
-**PLOTS??**
+    - **Training Stability Plot:** It generates the Loss History plot, visualizing the mean training and validation loss curves (with standard deviation shading) to verify model convergence and check for overfitting.
+
+Output: Saves a processed dictionary containing the aggregated metrics and averaged SHAP values for the next step.
+### B. Final Figures (`main_plots.ipynb`)
+
+This notebook loads the aggregated data produced by the previous step and generates the primary figures used to evaluate the scientific validity of the model:
+
+    - **Model Performance (ROC Curves):** Plots the Receiver Operating Characteristic (ROC) curve with the Area Under the Curve (AUC) score. It visualizes the trade-off between the True Positive Rate and False Positive Rate, showing the mean curve of the ensemble with confidence intervals.
+
+    - **Driver Importance (SHAP):** Visualizes the Global Feature Importance. It produces bar charts ranking the top atmospheric (ERA5) and land (ERA5-Land) drivers based on their mean absolute SHAP values, quantifying which physical variables most influence the heatwave predictions.
 
 

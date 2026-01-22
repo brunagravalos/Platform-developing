@@ -13,7 +13,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Open Platform',
   tagline: 'The EXPECT paltform to ensure reproducibility.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon-n.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -89,7 +89,9 @@ const config = {
         title: 'Open Platform',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/expect-logo-dark.png',
+          src: 'img/expect-logo-light-nbg.png',
+          // 2. Image for DARK MODE (e.g., white text/icon)
+          srcDark: 'img/expect-logo-dark.png',
         },
         items: [
           
@@ -98,48 +100,73 @@ const config = {
         ],
       },
       footer: {
-        style: 'dark',
+        style: 'dark', // Footer looks best in dark mode usually
         links: [
           {
-            title: 'Docs',
-            items: [
-              
-            ],
-          },
-          {
-            title: 'Community',
+            title: 'Contact us',
             items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                // You can replace this with a real link/email
+                label: 'Get in touch', 
+                href: 'https://expect-project.eu/contact', 
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                // This allows us to put your text directly in the column
+                html: `
+                  <p style="font-size: 0.85rem; opacity: 0.6; margin-top: 0.5rem; line-height: 1.4;">
+                    If you have any questions about the Expect project, feel free to get in touch with us.
+                  </p>
+                `,
               },
             ],
           },
           {
-            title: 'More',
+            title: 'Credits',
             items: [
-              
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                html: `
+                  <span style="font-size: 0.85rem; opacity: 0.6;">
+                    Earth image extracted from <br/>
+                    <strong>NASA Science</strong>
+                  </span>
+                `,
+              },
+            ],
+          },
+          {
+            title: 'Legal',
+            items: [
+              {
+                label: 'Privacy Policy & Cookies',
+                to: '#', // Replace with your actual privacy page link if you have one
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        // The copyright field supports HTML, so we put the big disclaimer here
+        copyright: `
+          <div style="margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem;">
+            
+            <div style="margin-bottom: 1.5rem; font-weight: 500;">
+              © Copyright ${new Date().getFullYear()} – Expect Project
+            </div>
+
+            <div style="font-size: 0.75rem; opacity: 0.5; line-height: 1.6; max-width: 900px; margin: 0 auto; text-align: center;">
+              <p>
+                Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the 
+                European Union or the European Climate, Infrastructure and Environment Executive Agency (CINEA). 
+                Neither the European Union nor CINEA can be held responsible for them.
+              </p>
+              <p>
+                The UK participation in the project is funded by UK Research and Innovation (UKRI) under the 
+                UK government’s Horizon Europe funding guarantee, and Canadian participation in the EXPECT project 
+                draws upon research supported by the Government of Canada’s New Frontiers in Research Fund (NFRF).
+              </p>
+            </div>
+          </div>
+        `,
       },
-      prism: {
-        theme: prismThemes.github,
-        darkTheme: prismThemes.dracula,
-      },
+      
     }),
 };
 
