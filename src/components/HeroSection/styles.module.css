@@ -1,49 +1,23 @@
-/* --- OUTER CONTAINER (The Taller Canvas) --- */
+/* src/components/HeroSection/styles.module.css */
+
 .hero {
   position: relative;
-  /* INCREASE HEIGHT: This is the only thing that changes size. 
-     It allows the content to "bleed" down. */
-  height: 140vh; 
+  height: 140vh;
   width: 100%;
-  overflow: hidden; /* Cuts off anything past 140vh */
-  background-color: #050505;
-  /* Removed flex properties from here because the wrapper handles alignment */
+  overflow: hidden;
+  background-color: var(--hero-bg); /* Variable */
+  transition: background-color 0.3s ease;
 }
-
-/* --- INNER WRAPPER (The "Original" Hero) --- */
-.viewportLock {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* This forces the layout to behave exactly like the 100vh version */
-  height: 100vh; 
-  
-  display: flex;
-  align-items: center; /* Vertically Centers text in the first screen */
-  justify-content: flex-start;
-  padding-left: 8%;
-  
-  /* IMPORTANT: Allow elements inside (Earth) to hang out the bottom */
-  overflow: visible; 
-  z-index: 10;
-}
-
-/* --- LAYERS --- */
 
 .bgGradient {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 70% 80%,
-    rgba(20, 25, 40, 1) 0%,
-    rgba(5, 5, 5, 1) 70%
-  );
+  background: var(--hero-gradient); /* Variable */
   z-index: 0;
+  transition: background 0.3s ease;
 }
 
-/* Earth is now positioned relative to the 100vh viewportLock, 
-   so 'bottom: -25%' puts it in the EXACT same place as before. */
+/* --- EARTH --- */
 .earthLayer {
   position: absolute;
   bottom: -25%; 
@@ -52,29 +26,47 @@
   height: 70vw;
   border-radius: 50%;
   background-image: url('/img/nasa-earth.jpg');
-  background-size: 109%;
+  background-size: var(--hero-earth-size);
   background-position: center;
-  filter: grayscale(100%) brightness(0.6) sepia(1) hue-rotate(180deg) saturate(1.5);
-  opacity: 0.5;
   z-index: 1;
-  animation: orbitRotate 350s linear infinite; 
-  box-shadow: inset 0 0 100px 50px #050505; 
+  animation: orbitRotate 350s linear infinite;
+
+  /* DYNAMIC VARIABLES */
+  opacity: var(--earth-opacity);
+  filter: var(--earth-filter);
+  mix-blend-mode: var(--earth-mix-blend);
+  transition: all 0.5s ease;
 }
 
+.viewportLock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; 
+  display: flex;
+  align-items: center; 
+  justify-content: flex-start;
+  padding-left: 8%;
+  overflow: visible; 
+  z-index: 10;
+}
+
+/* --- WAVES --- */
 .waveContainer {
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  mix-blend-mode: screen; 
-  color: whitesmoke;
+  /* REMOVED: mix-blend-mode: screen (This was hiding waves in light mode) */
+  /* REMOVED: color: whitesmoke */
+
+  
 }
 
 .waveSvg {
   width: 100%;
   height: 100%;
-  /* Optional: Scale Y if you want lines to reach deeper, 
-     otherwise remove this to keep original look */
   transform: scaleY(1.2); 
 }
 
@@ -82,14 +74,13 @@
   animation: flowDash 60s linear infinite;
 }
 
-/* --- CONTENT --- */
+/* --- CONTENT & TYPOGRAPHY --- */
 .content {
   position: relative;
   z-index: 10;
   max-width: 600px;
 }
 
-/* --- TYPOGRAPHY --- */
 .monoTag {
   display: flex;
   align-items: center;
@@ -98,39 +89,52 @@
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.25em; 
-  color: rgba(255, 255, 255, 0.5);
+  
+  color: var(--hero-mono-tag); /* FIXED: Uses variable now */
+  transition: color 0.3s ease;
+  
   margin-bottom: 2rem;
 }
 
-
+.tagLine {
+  display: block;       
+  width: 40px;          
+  height: 2px;          
+  background-color: var(--hero-tag-line); /* FIXED: Uses variable now */
+  border-radius: 2px;   
+  transition: background-color 0.3s ease;
+}
 
 .title {
   font-family: 'Manrope', sans-serif;
   font-size: clamp(3.5rem, 6vw, 5rem);
-  line-height: 1.1;
-  font-weight: 600; 
-  color: white;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+  
+  color: var(--hero-text-title); /* Variable */
+  transition: color 0.3s ease;
 }
 
 .thinText {
   font-weight: 200; 
-  opacity: 0.9;
   font-style: italic; 
-  background: linear-gradient(90deg, #ffffff, #94a3b8);
+  
+  /* FIXED: Gradient now uses the title text color so it adapts */
+  background: linear-gradient(90deg, var(--hero-text-title), var(--hero-text-sub));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  padding-right: 0.2em; /* Keeps the 'm' from being cut off */
+  padding-right: 0.2em; 
 }
 
 .subtitle {
   font-family: 'Manrope', sans-serif;
   font-size: 1.1rem;
-  line-height: 1.8; 
-  color: #a1a1aa; 
-  margin-bottom: 3.5rem;
-  font-weight: 300;
+  font-weight: 400;
   max-width: 480px;
+  
+  color: var(--hero-text-sub); /* Variable */
+  transition: color 0.3s ease;
+  margin-bottom: 3.5rem;
 }
 
 /* --- BUTTONS --- */
@@ -143,29 +147,27 @@
 .btnPrimary {
   position: relative;
   padding: 14px 32px;
-  background: rgba(255, 255, 255, 0.03); 
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px); 
-  color: white;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  border-radius: 4px; 
+  border-radius: 4px;
   text-decoration: none !important;
+  font-weight: 500;
+  
+  /* Variables */
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  border: 1px solid rgba(125,125,125, 0.2); 
+  
+  backdrop-filter: blur(8px);
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
 .btnPrimary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  opacity: 0.9;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
 }
 
 .btnSecondary {
-  color: #d4d4d8;
+  color: var(--btn-secondary-color); /* FIXED: Uses variable */
   font-family: 'Manrope', sans-serif;
   font-size: 0.95rem;
   font-weight: 400;
@@ -175,8 +177,8 @@
 }
 
 .btnSecondary:hover {
-  color: white;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  color: var(--btn-secondary-hover); /* FIXED: Uses variable */
+  border-bottom: 1px solid var(--btn-secondary-hover);
 }
 
 /* --- ANIMATIONS --- */
@@ -190,12 +192,58 @@
   to { stroke-dashoffset: -100; }
 }
 
+/* --- OVERLAY & FADE --- */
+.bottomFade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20vh; 
+  z-index: 5; 
+  pointer-events: none;
+  
+  /* FIXED: Fades to the dynamic background color (White or Black) */
+  background: linear-gradient(to bottom, 
+    rgba(0,0,0,0) 0%, 
+    var(--bottom-fade-color) 100%
+  );
+}
+
+/* About/Overlay section text fix */
+.aboutOverlay {
+  position: absolute;
+  bottom: 10vh;
+  left: 8%;
+  z-index: 10;
+  max-width: 550px;
+}
+.scrollLine {
+  width: 1px;
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--hero-text-sub), transparent);
+  margin-bottom: 2rem;
+  opacity: 0.5;
+}
+.aboutText {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--hero-text-sub); /* FIXED */
+  font-weight: 300;
+  backdrop-filter: blur(4px);
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 1px solid var(--hero-tag-line);
+}
+.inlineLink {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ifm-color-primary);
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 996px) {
-  /* On mobile, we might want to relax the lock or adjust heights */
-  .hero {
-    height: 110vh; /* Less drastic height on mobile */
-  }
+  .hero { height: 110vh; }
   .viewportLock {
     justify-content: center;
     text-align: center;
@@ -206,62 +254,11 @@
     height: 100vw;
     bottom: -15%;
     right: -20%;
-    opacity: 0.3; 
+    opacity: 0.2; /* Slightly lower opacity on mobile */
   }
   .monoTag { justify-content: center; }
   .tagLine { display: none; }
   .buttonGroup { justify-content: center; }
-}
-
-/* ... Keep all your existing CSS ... */
-
-/* --- NEW: Bottom Overlay --- */
-.aboutOverlay {
-  position: absolute;
-  bottom: 10vh; /* Sits 10% up from the very bottom */
-  left: 8%; /* Aligns with the title above */
-  z-index: 10;
-  max-width: 550px;
-}
-
-.scrollLine {
-  width: 1px;
-  height: 80px; /* Length of the connector line */
-  background: linear-gradient(to bottom, 
-    rgba(255, 255, 255, 0), 
-    rgba(255, 255, 255, 0.5), 
-    rgba(255, 255, 255, 0)
-  );
-  margin-bottom: 2rem;
-  /* Optional: Center the line if you prefer, or keep left aligned */
-}
-
-.aboutText {
-  font-family: 'Manrope', sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #cbd5e1; /* Soft grey text */
-  font-weight: 300;
-  backdrop-filter: blur(4px); /* Optional: slight blur */
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.inlineLink {
-  color: #7dd3fc;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(125, 211, 252, 0.3);
-  transition: all 0.2s;
-}
-
-.inlineLink:hover {
-  color: white;
-  border-color: white;
-}
-
-/* Mobile Adjustment */
-@media (max-width: 996px) {
   .aboutOverlay {
     position: relative;
     bottom: auto;
@@ -271,29 +268,4 @@
     width: 100%;
   }
   .scrollLine { margin: 0 auto 2rem auto; }
-}
-.bottomFade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 20vh; /* Covers the bottom 20% of the screen */
-  z-index: 5; /* Above background, below text/interactives */
-  pointer-events: none;
-  
-  /* Fades from Transparent -> Pure Black (#050505) */
-  background: linear-gradient(to bottom, 
-    rgba(5, 5, 5, 0) 0%, 
-    #050505 100%
-  );
-}
-
-/* --- ADD OR FIX THIS CLASS --- */
-.tagLine {
-  display: block;       /* Ensures the span acts like a box, not text */
-  width: 40px;          /* The length of the line */
-  height: 2px;          /* Thickness (1px can be too faint on high-res screens) */
-  background-color: #ffffff5d; /* Cyan Color */
-  border-radius: 2px;   /* Slight rounding */
-  
 }

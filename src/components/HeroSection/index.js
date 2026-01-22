@@ -2,25 +2,30 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import styles from './styles.module.css';
 
-// The "High Density" Flow Field (20+ lines, White Core)
+
+
+// src/pages/index.js
+
+// ... imports ...
+
 const FlowField = () => (
   <svg className={styles.waveSvg} viewBox="0 0 1440 900" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
-      {/* The "Fiber Optic" Gradient: Transparent -> White -> Transparent */}
+      {/* UPDATED GRADIENT: Smoother transition for Light Mode */}
       <linearGradient id="flowGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stopColor="rgba(255, 255, 255, 0.0)" />
-        <stop offset="20%" stopColor="rgba(255, 255, 255, 0.2)" />
-        <stop offset="50%" stopColor="rgba(255, 255, 255, 0.9)" /> {/* Bright White Center */}
-        <stop offset="80%" stopColor="rgba(255, 255, 255, 0.2)" />
-        <stop offset="100%" stopColor="rgba(255, 255, 255, 0.0)" />
+        <stop offset="0%" stopColor="var(--wave-color-faint)" stopOpacity="0" />
+        
+        {/* Widen the center so lines look like 'ribbons' rather than scratches */}
+        <stop offset="30%" stopColor="var(--wave-color-faint)" />
+        <stop offset="50%" stopColor="var(--wave-color-core)" /> 
+        <stop offset="70%" stopColor="var(--wave-color-faint)" />
+        
+        <stop offset="100%" stopColor="var(--wave-color-faint)" stopOpacity="0" />
       </linearGradient>
     </defs>
     
-    {/* Applied the float animation to the whole group */}
     <g className={styles.waveGroup}>
-      
-      {/* --- CORE STREAM (Thick, dense center) --- */}
-      {/* Moved down to Y=750 to sit under your buttons */}
+      {/* The paths stay exactly the same, they just reference the ID above */}
       <path d="M-200 750 C 300 750, 600 350, 1600 450" stroke="url(#flowGrad)" strokeWidth="1" opacity="0.8" />
       <path d="M-200 760 C 320 760, 620 360, 1600 460" stroke="url(#flowGrad)" strokeWidth="0.8" opacity="0.7" />
       <path d="M-200 770 C 340 770, 640 370, 1600 470" stroke="url(#flowGrad)" strokeWidth="1.2" opacity="0.9" />
@@ -31,18 +36,15 @@ const FlowField = () => (
       <path d="M-200 820 C 440 820, 740 420, 1600 520" stroke="url(#flowGrad)" strokeWidth="1" opacity="0.9" />
       <path d="M-200 830 C 460 830, 760 430, 1600 530" stroke="url(#flowGrad)" strokeWidth="0.5" opacity="0.5" />
       
-      {/* --- UPPER ECHO (Creates the "Net" volume above) --- */}
       <path d="M-200 700 C 300 700, 500 300, 1600 400" stroke="url(#flowGrad)" strokeWidth="0.5" opacity="0.3" />
       <path d="M-200 720 C 320 720, 520 320, 1600 420" stroke="url(#flowGrad)" strokeWidth="0.6" opacity="0.4" />
       <path d="M-200 740 C 340 740, 540 340, 1600 440" stroke="url(#flowGrad)" strokeWidth="0.5" opacity="0.3" />
 
-      {/* --- CROSS CURRENTS (The intersection lines) --- */}
       <path d="M-200 650 C 400 650, 800 750, 1600 250" stroke="url(#flowGrad)" strokeWidth="0.5" opacity="0.2" />
       <path d="M-200 670 C 450 670, 850 770, 1600 270" stroke="url(#flowGrad)" strokeWidth="0.4" opacity="0.3" />
       <path d="M-200 690 C 500 690, 900 790, 1600 290" stroke="url(#flowGrad)" strokeWidth="0.6" opacity="0.2" />
       
-      {/* --- BOTTOM GLOW (The hazy reflection) --- */}
-      <path d="M-200 900 C 500 900, 800 550, 1600 650" stroke="url(#flowGrad)" strokeWidth="3" opacity="0.1" filter="blur(5px)" />
+      <path d="M-200 900 C 500 900, 800 550, 1600 650" stroke="url(#flowGrad)" strokeWidth="3" opacity="0.1" filter="blur(8px)" />
     </g>
   </svg>
 );

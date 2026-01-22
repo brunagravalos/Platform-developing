@@ -1,126 +1,195 @@
-/**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
- */
-
-/* Import a nice Serif font for headings */
-@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&display=swap');
+/* --- GLOBAL IMPORTS --- */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap');
 
-/* =========================
-   LIGHT MODE (default)
-   ========================= */
+/* src/css/custom.css */
 
+/* ==============================================
+   1. THEME VARIABLES (With Transparency)
+   ============================================== */
+
+/* --- LIGHT MODE --- */
 :root {
-  --ifm-color-primary: #2563eb;
-  --ifm-color-primary-dark: #1e40af;
-  --ifm-color-primary-light: #60a5fa;
 
-  --ifm-background-color: #fafafa;
-  --ifm-background-surface-color: #f8fafc;
 
-  --ifm-font-color-base: #0f172a;
-  --ifm-font-color-secondary: #475569;
+  /* NAVBAR */
+  /* Glassy White with a hint of blue-ish tint for freshness */
+  --ifm-navbar-background-color: rgba(255, 255, 255, 0.8) !important;
+  --ifm-navbar-shadow: none;
 
-  --ifm-card-background-color: #ffffff;
-  --ifm-card-border: 1px solid #eaeaea;
-  --ifm-card-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  /* HERO BACKGROUND */
+  --hero-bg: #f8fafc; 
+  /* The "Atmosphere" Gradient: Instead of Grey, we use a very faint Blue glow */
+  --hero-gradient: radial-gradient(
+      circle at 70% 80%, 
+      #ffffff 0%, 
+      #f0f9ff 40%, /* Alice Blue */
+      #f8fafc 100%
+  );
+  
+  /* HERO TEXT */
+  --hero-text-title: #0f172a; /* Slate-900 (Sharp & Professional) */
+  --hero-text-sub: #475569;   /* Slate-600 */
+  --hero-mono-tag: #64748b;   /* Slate-500 */
+  --hero-tag-line: #0ea5e9;   /* Sky Blue Accent */
+  
+  /* EARTH (Light Mode Specific) */
+  /* Slightly more transparent so it blends into the atmosphere */
+  --earth-opacity: 0.9; 
+  /* Lower contrast to make it look "soft" on white */
+  --earth-filter: saturate(0.9) brightness(1.05) contrast(1.0);
+  --earth-mix-blend: multiply;
+  
+  /* WAVES (The key fix) */
+  /* Instead of Black, use a Deep Cool Blue-Grey */
+  --wave-color-core: rgba(51, 65, 85, 0.4); /* Slate-700 at 40% opacity */
+  --wave-color-faint: rgba(56, 189, 248, 0.05); /* Very faint Blue trace */
 
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
-  --ifm-font-family-base: 'Inter', sans-serif;  /* Clean and readable for paragraphs */
-  --ifm-heading-font-family: 'Outfit', sans-serif;
-  --ifm-navbar-background-color: rgba(5, 5, 5, 0.75) !important;
-  --ifm-navbar-shadow: none !important;
+  /* BUTTONS */
+  --btn-primary-bg: #0f172a;
+  --btn-primary-text: #ffffff;
+  --btn-secondary-color: #475569;
+  --btn-secondary-hover: #0f172a;
+  
+  /* FADE & NAVBAR TOP */
+  --bottom-fade-color: #f8fafc; 
+  --navbar-bg-top: #f8fafc;
+
+
+
+  
+  --hero-earth-size: 110%;
+
+  /* MODELS SECTION VARIABLES */
+  --models-bg: #f8fafc;
+  --models-border-top: rgba(0, 0, 0, 0.05);
+  --models-grid-line: rgba(0, 0, 0, 0.05); /* Dark grey grid lines */
+  --models-grid-mask: radial-gradient(circle at center, black 50%, transparent 100%);
+  
+  --models-guide-line: linear-gradient(to bottom, rgba(14, 165, 233, 0), rgba(14, 165, 233, 0.3), rgba(14, 165, 233, 0));
+  --models-guide-dot: #0ea5e9;
+  
+  --models-text-mono: #64748b;
+  --models-line-accent: #0ea5e9;
+  --models-text-heading: #0f172a;
+  --models-border-title: rgba(0, 0, 0, 0.1);
+  --models-crosshair: #0ea5e9;
+  
+  /* Cards */
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.1);
+  --card-bg-hover: #ffffff;
+  --card-border-hover: rgba(14, 165, 233, 0.5);
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); /* Slight shadow for white cards */
+  --card-shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  
+  --card-corner-tl: rgba(14, 165, 233, 0.5);
+  --card-corner-br: rgba(0, 0, 0, 0.1);
+  --card-corner-active: #0ea5e9;
+  
+  --card-tag: #0ea5e9;
+  --card-title: #0f172a;
+  --card-desc: #475569;
+  --card-arrow: rgba(0, 0, 0, 0.2);
+  --card-arrow-hover: #0ea5e9;
 }
 
-/* =========================
-   DARK MODE
-   ========================= */
-
+/* --- DARK MODE --- */
 [data-theme='dark'] {
+  /* Docusaurus Defaults */
   --ifm-color-primary: #60a5fa;
-  --ifm-color-primary-dark: #3b82f6;
-  --ifm-color-primary-light: #93c5fd;
+  --ifm-background-color: #050505;
 
-  --ifm-background-color:    #050505;
+  --hero-earth-size: 109%;
 
-  --ifm-background-surface-color: #020617;
+  /* NAVBAR: Glassy Black (70% Opacity) */
+  --ifm-navbar-background-color: rgba(5, 5, 5, 0.7) !important;
+  --ifm-navbar-shadow: none;
+  
+  /* Hero Variables */
+  --hero-bg: #050505;
+  --hero-gradient: radial-gradient(circle at 70% 80%, rgba(20, 25, 40, 1) 0%, rgba(5, 5, 5, 1) 70%);
+  --hero-text-title: #ffffff;
+  --hero-text-sub: #a1a1aa;
+  --hero-mono-tag: rgba(255, 255, 255, 0.5);
+  --hero-tag-line: rgba(255, 255, 255, 0.3);
+  --earth-opacity: 0.5;
+  --earth-filter: grayscale(100%) brightness(0.6) sepia(1) hue-rotate(180deg) saturate(1.5);
+  --earth-mix-blend: normal;
+  
+  --btn-primary-bg: rgba(255, 255, 255, 0.05);
+  --btn-primary-text: #ffffff;
+  --btn-secondary-color: #d4d4d8;
+  --btn-secondary-hover: #ffffff;
+  
+  --bottom-fade-color: #050505;
+  --navbar-bg-top: #050505; /* Solid color for top of home */
 
-  --ifm-font-color-title: white;
-  --ifm-font-color-base: #a7a7a7;
-  --ifm-font-color-secondary: #9ca3af;
+  --wave-color-core: rgba(255, 255, 255, 0.9);
+  --wave-color-faint: rgba(255, 255, 255, 0.2);
 
-  --ifm-card-background-color: #0a0a0a;
-  --ifm-card-border: 1px solid #2e2e2e;
-  --ifm-card-box-shadow: 0 6px 20px rgba(109, 109, 109, 0.08);
-
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  /* MODELS SECTION VARIABLES (Original Dark Look) */
+  --models-bg: #050505;
+  --models-border-top: rgba(255, 255, 255, 0.05);
+  --models-grid-line: rgba(255, 255, 255, 0.03);
+  --models-grid-mask: radial-gradient(circle at center, black 50%, transparent 100%);
+  
+  --models-guide-line: linear-gradient(to bottom, rgba(56, 189, 248, 0), rgba(56, 189, 248, 0.3), rgba(56, 189, 248, 0));
+  --models-guide-dot: #38bdf8;
+  
+  --models-text-mono: #94a3b8;
+  --models-line-accent: #38bdf8;
+  --models-text-heading: white;
+  --models-border-title: rgba(255, 255, 255, 0.1);
+  --models-crosshair: #38bdf8;
+  
+  /* Cards */
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-bg-hover: rgba(255, 255, 255, 0.04);
+  --card-border-hover: rgba(56, 189, 248, 0.3);
+  --card-shadow: none;
+  --card-shadow-hover: none;
+  
+  --card-corner-tl: rgba(56, 189, 248, 0.5);
+  --card-corner-br: rgba(255, 255, 255, 0.1);
+  --card-corner-active: #38bdf8;
+  
+  --card-tag: #38bdf8;
+  --card-title: white;
+  --card-desc: #94a3b8;
+  --card-arrow: rgba(255, 255, 255, 0.2);
+  --card-arrow-hover: #38bdf8;
 }
 
-
-
-
-/* --- NAVIGATION LINKS --- */
-.navbar__item {
-  font-family: 'Manrope', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  color: #94a3b8;
-  transition: color 0.2s ease;
-  padding: 0.5rem 1rem;
-}
-
-.navbar__link:hover,
-.navbar__link--active {
-  color: #7dd3fc !important;
-  text-decoration: none;
-  background: rgba(56, 189, 248, 0.1);
-  border-radius: 4px;
-}
-
-.colorModeToggleBtn {
-  display: none !important;
-}
 
 /* ==============================================
-   STATE 1: THE DEFAULT (Docs, Blog, Scrolled Home)
+   2. NAVBAR LOGIC (The Glass Effect)
    ============================================== */
+
+/* GLOBAL STATE (Docs, Blog, Scrolled Home) */
+/* This applies the blur and uses the transparent variable we defined above */
 .navbar {
-  /* 1. Default to Glassy Dark */
-  background-color: rgba(5, 5, 5, 0.75) !important;
-  
-  /* 2. Enable Blur */
-  backdrop-filter: blur(12px) !important;
-  -webkit-backdrop-filter: blur(12px) !important;
-  
-  /* 3. Border & Specs */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-  box-shadow: none !important;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(125, 125, 125, 0.1); /* Subtle border */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   height: 80px;
-  
-  /* 4. Smooth Transition */
-  transition: background-color 0.3s ease, border-color 0.3s ease, backdrop-filter 0.3s ease;
 }
 
-/* ==============================================
-   STATE 2: LANDING PAGE - TOP (Solid Black)
-   ============================================== */
-/* This selector is more specific, so it overrides State 1 */
-
+/* LANDING PAGE - TOP STATE (Solid & Seamless) */
+/* When at the top, we want it to match the background exactly (No Blur) */
 body.home-page:not(.has-scrolled) .navbar {
-  /* 1. FORCE SOLID BLACK (Matches Hero) */
-  background-color: #050505 !important;
-  
-  /* 2. REMOVE BLUR (Solid colors don't need blur) */
+  background-color: var(--navbar-bg-top) !important; /* Solid White or Black */
   backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  
-  /* 3. REMOVE BORDER (Seamless look) */
   border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
+/* LANDING PAGE - SCROLLED STATE (Glassy) */
+/* When scrolling, it reverts to the global glassy look */
+body.home-page.has-scrolled .navbar {
+  background-color: var(--ifm-navbar-background-color) !important;
+  backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(125, 125, 125, 0.1) !important;
 }

@@ -90,7 +90,7 @@ conf/
 | `site` | The geographical site to model. Supported sites: `cordoba`, `lyon`, `marrakech`, `belgrado`, `stockholm`, `hannover`. | `cordoba` |
 | `dataset` | Defines variables, date ranges, and lag settings for ERA5 and ERA5-Land data. | `default` |  
 | `paths` | Defines the locations of input NetCDF files and output directories. | `marenostrum` |
-| `hyperparameters` | Specific training settings (learning rate, weight decay) for the selected site. | `default` |
+| `hyperparameters` | Specific training settings (learning rate, weight decay, minority_weight_multiplier) for the selected site. | `default` |
 
 
 
@@ -152,9 +152,9 @@ This group defines the absolute paths to input data and output directories. Thes
 
 These control the training dynamics. If `default_hypms` is `True`, the system loads optimized parameters from `site_hypms`:
     - `lr`: Learning rate (range: `1e-5` to `1e-3`).
-    - `w_decay`: Weight decay for regularization.
+    - `w_decay`: Weight decay for regularization (range: `1e-5` to `1e-1`).
     - `minority_weight_multiplier`: Multiplier to handle class imbalance (1.0 to 10.0).
-If `default_hypms` is `False`, the data loading script will use the optimized values from the folder `data_files/HYPMS_optimization_results`.
+If `default_hypms` is `False`, the data loading script will use the optimized values from the folder `data_files/HYPMS_optimization_results` included in the project source code.
 
 ### How to use
 
@@ -206,5 +206,14 @@ uv run python -m ipykernel install --user --name quantifydrivers --display-name 
 # Install the project in editable mode
 uv pip install -e .
 ```
-Then, in the notebook you have to make sure the selected kernel is the one created (in this case it would be *Python (quantifydrivers)*).
+Then, in the notebook you have to make sure the selected kernel is the one created (in this case it would be *(Python (quantifydrivers))* ).
+
+The notebook `ensemble_processing.ipynb` will get the results from the list of seeds mentioned before, and use the results to obtain performance metrics and SHAP explanibility results that combine this different results.
+
+It will also generate the plot of the mean of the losses for all the ensamble.
+
+**PLOTS??**
+The notebook `main_plots.ipynb` produces ROC curves plots, area under curve plots and mean shap values plots.
+**PLOTS??**
+
 

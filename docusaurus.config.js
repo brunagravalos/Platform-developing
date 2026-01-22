@@ -30,6 +30,7 @@ const config = {
   projectName: 'Platform-developing', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors:'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -80,25 +81,20 @@ const config = {
       colorMode: {
         defaultMode: 'dark',
         
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
+        disableSwitch: false,
+        respectPrefersColorScheme: true,
       },
       
       navbar: {
-        style: 'dark',
         title: 'Open Platform',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/expect-logo-removebg.png',
+          src: 'img/expect-logo-dark.png',
         },
         items: [
           
           
-          {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
-            position: 'right',
-          },
+          
         ],
       },
       footer: {

@@ -42,3 +42,4 @@ The pipeline is configured to analyze six specific locations across Europe and N
     - **Hannover (Germany)**
     - **Stockholm (Sweden)**
 
+![Large-scale data domain and locations selected for the local-scale data in the prediction target](/img/sites-screenshot.png)
