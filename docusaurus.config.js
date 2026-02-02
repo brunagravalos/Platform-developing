@@ -13,7 +13,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Open Platform',
   tagline: 'The EXPECT paltform to ensure reproducibility.',
-  favicon: 'img/favicon-n.ico',
+  favicon: 'img/favicon-new.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -91,7 +91,7 @@ const config = {
           alt: 'My Site Logo',
           src: 'img/expect-logo-light-nbg.png',
           // 2. Image for DARK MODE (e.g., white text/icon)
-          srcDark: 'img/expect-logo-dark.png',
+          srcDark: 'img/expect-logo-dark-nbg.png',
         },
         items: [
           
