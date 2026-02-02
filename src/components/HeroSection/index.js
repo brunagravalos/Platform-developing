@@ -79,7 +79,7 @@ export default function HeroSection() {
           </p>
 
           <div className={styles.buttonGroup}>
-            <Link className={styles.btnPrimary} to="#models-section">
+            <Link className={styles.btnPrimary} to="/Platform-developing/#models-section">
               Explore Models
             </Link>
             <Link className={styles.btnSecondary} to="https://expect-project.eu/">
