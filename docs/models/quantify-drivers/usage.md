@@ -133,18 +133,12 @@ This group defines the physical variables and temporal structure of the data. Ke
 This group defines the absolute paths to input data and output directories. These must be valid locations on the filesystem (e.g., the cluster).
 
     - **Input Data Files (ERA5 & Auxiliaries)**
-        - `file_g500`: Path to Geopotential Height at 500hPa anomalies (large-scale predictor).
-        - `file_g200`: Path to Geopotential Height at 200hPa anomalies (large-scale predictor).
-        - `file_psl`: Path to Mean Sea Level Pressure anomalies (large-scale predictor).
-        - `file_CO2: Path to daily CO2 data, used for climate signal adjustment/detrending.
-        - `file_local_scale`: Path to the site-specific ERA5-Land file containing local soil variables and the binary extreme event labels (e.g., 90p_cordoba...).
         - `file_spei` / `file_spi`: Paths to the directories containing Standardized Precipitation (Evapotranspiration) Index data. Only used if use_spei is set to True in the dataset config.
 
     - **Base Directory**
-        - base_folder: The root directory for the project's data storage (often pointing to a Zarr store or main data folder). This is used by the dataloader to locate files dynamically if specific paths are not hardcoded.
+        - base_folder: The root directory for the project's data storage (pointing to the Zarr file, more information in the [Data section](./data.md)).
 
     - **Output Directories**
-
         - `model_dir`: Directory where trained model weights (.pth files) are saved.
         - `results_dir`: Directory where evaluation pickles (metrics, loss history, predictions) and computed SHAP feature files are saved.
 

@@ -29,7 +29,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'QuantifyHW model',
+          label: 'Quantify heatwaves model',
           items: [
             'models/quantify-drivers/index',
             'models/quantify-drivers/usage',
