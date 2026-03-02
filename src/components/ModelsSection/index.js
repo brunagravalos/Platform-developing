@@ -9,7 +9,12 @@ const MODELS = [
     link: '/docs/models/quantify-drivers',
     tag: 'CLIMATE DYNAMICS'
   },
-  // Add more models to see the grid fill up
+  {
+    title: 'Data-driven Seasonal Forecasts of European heatwaves',
+    description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques.',
+    link: '/docs/models/forecast-hw',
+    tag: 'CLIMATE DYNAMICS'
+  },
 ];
 
 export default function ModelsSection() {

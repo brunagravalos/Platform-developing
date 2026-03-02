@@ -39,11 +39,11 @@ const sidebars = {
         },
         {
           type: 'category',
-          label: 'forest',
+          label: 'forecast-hw',
           items: [
-            'models/forest/index',
-            'models/forest/data',
-            'models/forest/usage',
+            'models/forecast-hw/index',
+            'models/forecast-hw/data',
+            'models/forecast-hw/usage',
           ],
         },
       ],

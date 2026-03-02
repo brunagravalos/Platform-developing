@@ -150,6 +150,8 @@ These control the training dynamics. If `default_hypms` is `True`, the system lo
     - `minority_weight_multiplier`: Multiplier to handle class imbalance (1.0 to 10.0).
 If `default_hypms` is `False`, the data loading script will use the optimized values from the folder `data_files/HYPMS_optimization_results` included in the project source code.
 
+The hyperparameter tunning can be done with the script `HYPM_tunning.py`, inside the folder `hypm_tunning`. THis scipt uses `optuna`to find the best parameter values for the model, by minimizing the `final_val_loss`. The hyperparameter files that were used for the training are saved on the folder `data_files` and can be directly used if that's prefered.
+
 ### How to use
 
 #### Changing Values via CLI
