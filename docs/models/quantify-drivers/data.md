@@ -4,13 +4,13 @@ title: Data
 
 ### 1. Data Description
 
-Our study utilizes a combination of atmospheric reanalysis data, land-surface data, and observational CO2 measurements. We categorize these inputs into **large-scale** (atmospheric circulation) and **local-scale** (site-specific land variables) data.
+The study utilizes a combination of atmospheric reanalysis data, land-surface data, and observational CO2 measurements. These inputs are categorized into **large-scale** (atmospheric circulation) and **local-scale** (site-specific land variables) data.
 
 #### 1.1 Large-Scale Atmospheric Data (ERA5)
 
-We use data from **ERA5** (Soci et al., 2024), the fifth-generation atmospheric reanalysis from the European Center for Medium-Range Weather Forecasts (ECMWF). ERA5 provides globally complete, gridded data from 1940 to the present. Despite inherent uncertainties across datasets, the long-term availability and spatial completeness of reanalyses make them ideal for studying climate trends, variability, and extreme events (Donat et al., 2014).
+The data used is from **ERA5** (Soci et al., 2024), the fifth-generation atmospheric reanalysis from the European Center for Medium-Range Weather Forecasts (ECMWF). ERA5 provides globally complete, gridded data from 1940 to the present. Despite inherent uncertainties across datasets, the long-term availability and spatial completeness of reanalyses make them ideal for studying climate trends, variability, and extreme events (Donat et al., 2014).
 
-For this study, we utilize daily atmospheric circulation fields to represent the large-scale state of the atmosphere. The specific variables selected are:
+For this study, daily atmospheric circulation fields are used to represent the large-scale state of the atmosphere. The specific variables selected are:
 
 * **Geopotential at 500 hPa** 
 * **Geopotential at 200 hPa**
@@ -18,14 +18,14 @@ For this study, we utilize daily atmospheric circulation fields to represent the
 
 #### 1.2 Local-Scale Land Surface Data (ERA5-Land)
 
-For land-surface variables, we employ the **ERA5-Land** dataset. With a 9 km horizontal resolution, it offers a superior representation of land-surface processes compared to standard ERA5 (Muñoz-Sabater et al., 2021). We utilize the following daily variables:
+For land-surface variables, the **ERA5-Land** dataset is employed. With a 9 km horizontal resolution, it offers a superior representation of land-surface processes compared to standard ERA5 (Muñoz-Sabater et al., 2021). The used following daily variables:
 
-* **Maximum 2-meter Temperature:** Used to define our target events (hot extremes).
+* **Maximum 2-meter Temperature:** Used to define the target events (hot extremes).
 * **Soil Moisture:** Used as predictors, taken at three distinct depth levels (swvl1, swvl2, and swvl3). 
 
 #### 1.3 Climate Signal (CO2)
 
-To account for the long-term trend of climate change, we include seasonal atmospheric  concentrations. We use measurements from the **NOAA Mauna Loa Observatory** in Hawaii. These concentrations are calculated as a seasonal mean, providing a constant value for each summer to represent the background climate signal.
+To account for the long-term trend of climate change, seasonal atmospheric  concentrations are included. The measurements used are from the **NOAA Mauna Loa Observatory** in Hawaii. These concentrations are calculated as a seasonal mean, providing a constant value for each summer to represent the background climate signal.
 
 ---
 
@@ -48,12 +48,12 @@ The data is organized into two distinct categories: **large-scale data** (single
 While the original raw data was sourced from the ECMWF and NOAA, the specific dataset used in this project was processed within the Barcelona Supercomputing Center (BSC) infrastructure. The processing pipeline is as follows:
 
 1. **Source:** Raw data was retrieved from the **esarchive** (BSC's internal data archive).
-2. **Preprocessing:** Data was processed using the custom notebooks provided in the source code (`prepare_inputs_models`  `custom_datasets.py`). This stage handles the extraction and formatting of variables described above.
+2. **Preprocessing:** Data was processed using the custom notebooks provided in the source code (`prepare_inputs_models` > `custom_datasets.py`). This stage handles the extraction and formatting of variables described above.
 3. **Restructuring:** The processed data was restructured and converted into the **Zarr** format for efficient storage and access, using the `utils.py` script.
 
 **Summary of flow:**
 
-> Copernicus/NOAA  esarchive  processing notebooks  `utils.py`  Final Zarr Dataset
+> Copernicus/NOAA > esarchive > processing notebooks > `utils.py` > Final Zarr Dataset
 
 ---
 

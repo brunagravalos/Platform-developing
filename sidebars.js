@@ -29,21 +29,29 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Quantify heatwaves model',
+          label: 'Quantify Heatwaves model',
           items: [
             'models/quantify-drivers/index',
             'models/quantify-drivers/usage',
-            'models/quantify-drivers/data',
-            
+            'models/quantify-drivers/data',            
           ],
         },
         {
           type: 'category',
-          label: 'forecast-hw',
+          label: 'Forecast Heatwaves model',
           items: [
             'models/forecast-hw/index',
-            'models/forecast-hw/data',
             'models/forecast-hw/usage',
+            'models/forecast-hw/data',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'SEASgen',
+          items: [
+            'models/SEASgen/index',
+            'models/SEASgen/usage',
+            'models/SEASgen/data',
           ],
         },
       ],

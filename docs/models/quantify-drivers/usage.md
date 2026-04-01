@@ -3,10 +3,10 @@ title: How to use
 ---
 ## 1. Installation
 ### Setup Repository
-The project repository is available in github at this link. To get started, clone the project and navigate to the directory:
+The project repository is available in github at this [link](https://github.com/agarcimes8/QuantifyDriversHW). To get started, clone the project and navigate to the directory:
 ```
-git clone repository_url
-cd repository_name
+git clone https://github.com/agarcimes8/QuantifyDriversHW.git
+cd QALDERA
 ```
 
 ### Environment Setup
@@ -123,7 +123,7 @@ This group defines the physical variables and temporal structure of the data. Ke
     - `start_lag`: (int) The starting lag for the ERA5 predictor variables.
     - `lags_era5`: (int) The number of lag steps to include.
 
-- **Drought Indices (in developing)**:
+- **Drought Indices (in development)**:
     - `use_spei`: (bool) If True, includes SPEI/SPI indices in the model.
     - `spei_spi`: Type of index (`"spei"` or `"spi"`).
     - `scales_spei`: List of time scales (e.g., `['30', '60']`).
@@ -136,7 +136,7 @@ This group defines the absolute paths to input data and output directories. Thes
         - `file_spei` / `file_spi`: Paths to the directories containing Standardized Precipitation (Evapotranspiration) Index data. Only used if use_spei is set to True in the dataset config.
 
     - **Base Directory**
-        - base_folder: The root directory for the project's data storage (pointing to the Zarr file, more information in the [Data section](./data.md)).
+        - `base_folder`: The root directory for the project's data storage (pointing to the Zarr file, more information in the [Data section](./data.md)).
 
     - **Output Directories**
         - `model_dir`: Directory where trained model weights (.pth files) are saved.
@@ -150,9 +150,9 @@ These control the training dynamics. If `default_hypms` is `True`, the system lo
     - `minority_weight_multiplier`: Multiplier to handle class imbalance (1.0 to 10.0).
 If `default_hypms` is `False`, the data loading script will use the optimized values from the folder `data_files/HYPMS_optimization_results` included in the project source code.
 
-The hyperparameter tunning can be done with the script `HYPM_tunning.py`, inside the folder `hypm_tunning`. THis scipt uses `optuna`to find the best parameter values for the model, by minimizing the `final_val_loss`. The hyperparameter files that were used for the training are saved on the folder `data_files` and can be directly used if that's prefered.
+The hyperparameter tunning can be done with the script `HYPM_tunning.py`, inside the folder `hypm_tunning`. This script uses `optuna`to find the best parameter values for the model, by minimizing the `final_val_loss`. The hyperparameter files that were used for the training are saved on the folder `data_files` and can be directly used if that's prefered.
 
-### How to use
+### How to run
 
 #### Changing Values via CLI
 
@@ -194,7 +194,7 @@ uv run python "$SCRIPT_PATH" seed=$CURRENT_SEED site=marrakech
 
 ## 3. Visualization & Analysis
 
-To reproduce the figures from the paper, the project provides two notebooks. These are designed to aggregate the results from the multi-seed ensemble and generate plots.
+To reproduce the figures from the paper, the project provides two notebooks. These are designed to aggregate the results from the multi-seed ensemble and generate plots. They also save in the `output_dirs` path a `.txt` files with the balanced accuracy for each site, among other results. 
 
 To run the notebooks, ensure you have the project installed as a kernel:
 
