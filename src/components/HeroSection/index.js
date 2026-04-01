@@ -75,7 +75,7 @@ export default function HeroSection() {
           </h1>
 
           <p className={styles.subtitle}>
-            Towards an Integrated Capability to Explain and Predict Regional Climate Changes.
+            Towards an Open Science approach to explain and predict climate extremes.
           </p>
 
           <div className={styles.buttonGroup}>

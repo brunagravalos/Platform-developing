@@ -4,15 +4,11 @@ sidebar_label: Overview
 ---
 
 
-**Authors:** Stefano Materia, Martin Jung, Lluís Palma , Amanda Duarte, Ullrich Weber, Margarida
-Samso-Cabré, Pere Bancells, Markus G. Donat.
+**Authors:** Stefano Materia, Martin Jung, Lluís Palma, Amanda Duarte, Ullrich Weber, Margarida Samso-Cabré, Pere Bancells, Markus G. Donat.
 
 **Links:** [Original Paper](https://www2.cloud.editorialmanager.com/aies/download.aspx?id=308962&guid=de3bcf4e-f431-4562-84bf-00019373e3a8&scheme=1) | [GitHub Repository]( ) | [Datset for download]()  
 
 ---
-
-
-
 
 ### Scientific Objective
 
