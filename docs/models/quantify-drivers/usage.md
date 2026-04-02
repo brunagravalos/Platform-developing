@@ -3,7 +3,7 @@ title: How to use
 ---
 ## 1. Installation
 ### Setup Repository
-The project repository is available in github at this [link](https://github.com/agarcimes8/QuantifyDriversHW). To get started, clone the project and navigate to the directory:
+The project repository is available in GitHub at this [link](https://github.com/agarcimes8/QuantifyDriversHW). To get started, clone the project and navigate to the directory:
 ```
 git clone https://github.com/agarcimes8/QuantifyDriversHW.git
 cd QALDERA

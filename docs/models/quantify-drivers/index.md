@@ -15,7 +15,7 @@ Although different physical drivers play a central role in modulating the intens
 
 To achieve this, certain variables from available climatological datasets were selected and used to train a machine learning model, and the results were interpreted using explainable AI techniques. A daily extreme event is classified using the 90th percentile threshold of the climatological maximum temperature distribution; however, the experiments can also be performed using an 80th percentile threshold. A brief overview of this process is provided below; for a more detailed explanation, refer to the paper linked at the beginning of this page.
 
-### Data
+### Dataset and variables
 This model uses data from the **ERA5** and **ERA5-Land** datasets, which are part of the fifth-generation atmospheric reanalysis from the **European Centre for Medium-Range Weather Forecasts (ECMWF)**. It also uses data on seasonal atmospheric concentrations of CO₂ collected by the **US National Oceanic and Atmospheric Administration (NOAA)**. 
 
 The **ERA5**  dataset uses daily gridded data from 1940 to the present. More specifically, the following variables are used: Geopotential at 500 hPa (`g500`), Geopotential at 200 hPa (`g200`) and Sea Level Pressure (`psl`).

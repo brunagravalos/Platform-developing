@@ -182,6 +182,9 @@
   font-family: 'Manrope', sans-serif; font-size: 1rem; line-height: 1.6;
   color: var(--card-desc); /* Variable */
   font-weight: 300; margin-bottom: 0;
+  hyphens: auto; 
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
 }
 .cardArrow {
   align-self: flex-end; font-size: 1.25rem; 

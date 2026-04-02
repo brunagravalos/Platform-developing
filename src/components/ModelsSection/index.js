@@ -4,8 +4,8 @@ import styles from './styles.module.css';
 
 const MODELS = [
   {
-    title: 'Heatwave Quantify Driver',
-    description: 'Quantifying atmospheric and land drivers of hot temperature extremes through explainable Artificial Intelligence.',
+    title: 'QALDERA',
+    description: 'Quantifying the atmospheric, land, and anthropogenic drivers of hot temperature extremes through machine learning. This project utilizes a combined neural network approach and Explainable AI to measure how different environmental variables interact to trigger heat waves.',
     link: '/docs/models/quantify-drivers',
     tag: 'CLIMATE DYNAMICS'
   },
@@ -13,6 +13,12 @@ const MODELS = [
     title: 'Data-driven Seasonal Forecasts of European heatwaves',
     description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques.',
     link: '/docs/models/forecast-hw',
+    tag: 'CLIMATE DYNAMICS'
+  },
+  {
+    title: 'SEASgen',
+    description: 'Forecasting global seasonal climate anomalies using machine learning techniques. This project combines variational inference and transformers to accurately predict temperature and rainfall while overcoming the computational limitations of traditional climate models.',
+    link: '/docs/models/SEASgen',
     tag: 'CLIMATE DYNAMICS'
   },
 ];
