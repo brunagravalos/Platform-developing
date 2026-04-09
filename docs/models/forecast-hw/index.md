@@ -4,7 +4,7 @@ sidebar_label: Overview
 ---
 
 
-**Authors:** Stefano Materia, Martin Jung, Lluís Palma, Amanda Duarte, Ullrich Weber, Margarida Samso-Cabré, Pere Bancells, Markus G. Donat.
+**Authors:** [Stefano Materia](https://orcid.org/0000-0001-5635-2847), [Martin Jung](https://www.bgc-jena.mpg.de/person/mjung/4777761), [Lluís Palma](https://orcid.org/0000-0002-3284-2152), [Amanda Duarte](https://orcid.org/0000-0002-9340-958X), Ullrich Weber, [Margarida Samso-Cabré](https://orcid.org/0000-0003-2868-2755), [Pere Bancells](https://orcid.org/0009-0009-9920-5084), [Markus Donat](https://orcid.org/0000-0002-0608-7288).
 
 **Links:** [Original Paper](https://www2.cloud.editorialmanager.com/aies/download.aspx?id=308962&guid=de3bcf4e-f431-4562-84bf-00019373e3a8&scheme=1) | [GitHub Repository]( ) | [Datset for download]()  
 

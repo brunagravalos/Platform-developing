@@ -4,7 +4,7 @@ sidebar_label: Overview
 ---
 
 
-**Authors:** Arnau Garcia Mesa, Lluís Palma, Markus Donat, Stefano Materia, Raül Marcos Matamoros.
+**Authors:** [Arnau Garcia Mesa](https://orcid.org/0009-0004-5738-8867), [Lluís Palma](https://orcid.org/0000-0002-3284-2152), [Markus Donat](https://orcid.org/0000-0002-0608-7288), [Stefano Materia](https://orcid.org/0000-0001-5635-2847), [Raül Marcos Matamoros](https://orcid.org/0000-0002-3610-3445).
 
 **Links:** [Original Paper](https://egusphere.copernicus.org/preprints/2025/egusphere-2025-5392/) | [GitHub Repository](https://github.com/agarcimes8/QuantifyDriversHW) | [Datset for download](https://zenodo.org/uploads/18402053)  
 
@@ -20,7 +20,7 @@ This model uses data from the **ERA5** and **ERA5-Land** datasets, which are par
 
 The **ERA5**  dataset uses daily gridded data from 1940 to the present. More specifically, the following variables are used: Geopotential at 500 hPa (`g500`), Geopotential at 200 hPa (`g200`) and Sea Level Pressure (`psl`).
 
-From the **ERA5-Land dataset**, which provides a better representation of land surface variables, the following variables are used: daily maximum 2-meter temperature (`TX`)and the soil moisture at three depth levels (`swl1`, `swl2` and `swl3`).
+From the **ERA5-Land dataset**, which provides a better representation of land surface variables, the following variables are used: daily maximum 2-meter temperature (`TX`) and the soil moisture at three depth levels (`swl1`, `swl2` and `swl3`).
 
 To avoid including unrelated atmospheric variability, the selected domain is the area surrounded by the red line in the image below. The roles of circulation, soil moisture and anthropogenic climate change during extreme temperature events are specifically studied for the following regions:  **Córdoba (Spain)**, **Marrakech (Morocco)**, **Lyon (France)**, **Belgrade (Serbia)**, **Hannover (Germany)** and **Stockholm (Sweden)**.
 

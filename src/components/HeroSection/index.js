@@ -93,12 +93,15 @@ export default function HeroSection() {
         <div className={styles.scrollLine} />
         
         <p className={styles.aboutText}>
-          As a core initiative of the{' '}
+          As an initiative of the{' '}
           <Link className={styles.inlineLink} to="https://expect-project.eu/">
             EXPECT project
           </Link>
-          , this platform bridges the gap between climate research and advanced machine learning.
-          Our goal is to empower the community to not only reproduce our findings, but to build upon them.
+          , this platform serves as a centralized hub bridging the gap between published climate research and 
+          practical machine learning. 
+          By providing structured models, clear documentation, and direct access to datasets, 
+          our goal is to tackle the reproducibility crisis- empowering the scientific community to replicate 
+          experiments and build upon findings.
         </p>
       </div>
       <div className={styles.bottomFade} />
