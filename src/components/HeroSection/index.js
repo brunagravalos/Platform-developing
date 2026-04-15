@@ -66,11 +66,11 @@ export default function HeroSection() {
         <div className={styles.content}>
           <div className={styles.monoTag}>
             <span className={styles.tagLine} />
-            A REPRODUCIBILITY STANDARD.
+            EXPECT'S REPRODUCIBILITY STANDARD.
           </div>
 
           <h1 className={styles.title}>
-            Open Science <br />
+            Open Science<br />
             <span className={styles.thinText}>Platform</span>
           </h1>
 
