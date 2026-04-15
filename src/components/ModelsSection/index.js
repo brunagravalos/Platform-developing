@@ -11,7 +11,7 @@ const MODELS = [
   },
   {
     title: 'Data-driven Seasonal Forecasts of European heatwaves',
-    description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques.',
+    description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques, such as a Random Forest coupled with a Guided Hybrid Genetic Algorithm.',
     link: '/docs/models/forecast-hw',
     tag: 'CLIMATE DYNAMICS'
   },

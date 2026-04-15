@@ -70,7 +70,7 @@ export default function HeroSection() {
           </div>
 
           <h1 className={styles.title}>
-            The Open <br />
+            Open Science <br />
             <span className={styles.thinText}>Platform</span>
           </h1>
 
