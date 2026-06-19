@@ -11,7 +11,7 @@ const MODELS = [
   },
   {
     title: 'Data-driven Seasonal Forecasts of European heatwaves',
-    description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques, such as a Random Forest coupled with a Guided Hybrid Genetic Algorithm.',
+    description: 'Data-driven model (DDM) for forecasting European heatwaves at seasonal timescales using machine learning techniques, such as a Guided Hybrid Genetic Algorithm wrapped around a Random Forest to select the most relevant features.',
     link: '/docs/models/forecast-hw',
     tag: 'CLIMATE DYNAMICS'
   },
@@ -20,6 +20,12 @@ const MODELS = [
     description: 'Forecasting global seasonal climate anomalies using machine learning techniques. This project combines variational inference and transformers to accurately predict temperature and rainfall while overcoming the computational limitations of traditional climate models.',
     link: '/docs/models/SEASgen',
     tag: 'CLIMATE DYNAMICS'
+  },
+  {
+    title: 'CRAI',
+    description: 'Training and evaluating models to reconstruct missing values in climate data (e.g., HadCRUT4) based on a U-Net with partial convolutions',
+    link: 'docs/models/CRAI',
+    tag: 'ATMOSPHERIC SCIENCE'
   },
 ];
 

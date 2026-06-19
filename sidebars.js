@@ -54,6 +54,15 @@ const sidebars = {
             'models/SEASgen/data',
           ],
         },
+        {
+          type: 'category',
+          label: 'CRAI',
+          items: [
+            'models/CRAI/index',
+            'models/CRAI/usage',
+            'models/CRAI/data',
+          ],
+        },
       ],
     },
   ],

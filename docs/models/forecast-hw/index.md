@@ -20,7 +20,6 @@ The model leverages a combination of localized and global predictors—specifica
 * **Heatwave Propensity Index (HWP):** A composite index representing a season's overall vulnerability to heatwaves. It integrates the frequency, intensity, and duration of heat events into a single metric.
 
 
-
 ### Methodology: The Machine Learning Architecture
 
 The model's architecture is designed to sift through different climate data to find the most predictive signals. It achieves this using a two-part system:

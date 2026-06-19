@@ -130,9 +130,9 @@ This group defines the physical variables and temporal structure of the data. Ke
 
 **C. Paths**
 
-This group defines the absolute paths to input data and output directories. These must be valid locations on the filesystem (e.g., the cluster).
+This group defines the absolute paths to input data and output directories. These must be valid locations on the filesystem.
 
-    - **Input Data Files (ERA5 & Auxiliaries)**
+    - **Input Data Files**
         - `file_spei` / `file_spi`: Paths to the directories containing Standardized Precipitation (Evapotranspiration) Index data. Only used if use_spei is set to True in the dataset config.
 
     - **Base Directory**
