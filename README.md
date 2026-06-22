@@ -1,18 +1,18 @@
 # Open Science Platform website user guide
 
-Welcome to your new Docusaurus website! This guide will walk you through setting up the project on your local machine, connecting it to your own GitHub account, and deploying it live using GitHub Pages.
 
-## 📋 1. Prerequisites
+## Installation
 
 Before you begin, ensure you have the following installed on your computer:
-* **[Node.js](https://nodejs.org/)**: (Version 18.0 or higher is recommended). This includes `npm`, the package manager you will use to install dependencies.
-* **[Git](https://git-scm.com/)**: To manage version control and push your code to GitHub.
-* **A Code Editor**: Such as [Visual Studio Code](https://code.visualstudio.com/).
+* **[Node.js](https://nodejs.org/en/download/)**: (Version 20.0 or higher is recommended). This includes `npm`, the package manager you will use to install dependencies.
 
-## 💻 2. Running the Site Locally
+For more information, visit the [docusaurus installation page](https://docusaurus.io/docs/installation).
 
-1. Extract the provided project files into a folder on your computer.
-2. Open your terminal (or command prompt) and navigate into the project folder:
+
+## Running the site locally
+
+1. Clone the code into your computer.
+2. Navigate into the project folder:
 ```bash
    cd path/to/your/project-folder
    ```
@@ -24,9 +24,9 @@ Before you begin, ensure you have the following installed on your computer:
 ```bash
    npm run start
    ```
-5. Your browser should automatically open to `http://localhost:3000`. Any changes you make to the code will now live-reload in the browser!
+5. Your browser should automatically open to `http://localhost:3000`. Any changes you make to the code will now live-reload in the browser with `ctrl + s`.
 
-## 🐙 3. Connect to Your GitHub Repository
+## Deploying the site
 
 To host the site, you need to link this local code to your own GitHub account.
 
@@ -41,12 +41,8 @@ To host the site, you need to link this local code to your own GitHub account.
    git push -u origin main
    ```
 
-## ⚙️ 4. Update the Docusaurus Configuration
-
-Before deploying, you must tell Docusaurus where the site will be hosted. 
-
-1. Open the `docusaurus.config.js` file in your code editor.
-2. Locate and update the following fields at the top of the file with your specific GitHub details:
+3. Open the `docusaurus.config.js` file in your code editor.
+4. Locate and update the following fields at the top of the file with your specific GitHub details:
 
 ```javascript
 // docusaurus.config.js
@@ -62,8 +58,6 @@ module.exports = {
 };
 ```
 
-## 🚀 5. Deploy to GitHub Pages
-
 Docusaurus has a built-in command to automatically build and deploy your site to GitHub Pages.
 
 Run the appropriate command below in your terminal, replacing `<YOUR-GITHUB-USERNAME>` with your actual GitHub username:
@@ -73,17 +67,7 @@ Run the appropriate command below in your terminal, replacing `<YOUR-GITHUB-USER
 GIT_USER=<YOUR-GITHUB-USERNAME> npm run deploy
 ```
 
-**For Windows (Command Prompt):**
-```cmd
-cmd /C "set "GIT_USER=<YOUR-GITHUB-USERNAME>" && npm run deploy"
-```
-
-**For Windows (PowerShell):**
-```powershell
-$env:GIT_USER="<YOUR-GITHUB-USERNAME>"; npm run deploy
-```
-
-### Final Step: Enable GitHub Pages
+### Final step: enable gitHub pages
 1. Go to your repository on GitHub.
 2. Click on **Settings** > **Pages** (on the left sidebar).
 3. Under **Build and deployment**, ensure the **Source** is set to `Deploy from a branch`.
