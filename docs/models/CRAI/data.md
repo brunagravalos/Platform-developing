@@ -95,8 +95,6 @@ search_connection:
  
 ---
  
-
- 
 ## 2. Understanding the Recipe
  
 The CRAI recipe (`CRAI_recipe.yml`) is structured in four blocks:
