@@ -52,4 +52,4 @@ Each of the ten regions is tested independently across the four main meteorologi
 
 This results in **40 parallel experiments**, producing 40 highly specialized models (one for every region-season combination). The data domain and the ten specific European target regions can be seen below:
 
-![Large-scale data domain and locations selected for the local-scale data in the prediction target](/img/forecast-regions.png)
+![Large-scale data domain and locations selected for the local-scale data in the prediction target](/img/forecast-hw/forecast-regions.png)

@@ -29,7 +29,7 @@ const sidebars = {
       items: [
         {
           type: 'category',
-          label: 'Quantify Heatwaves model',
+          label: 'QALDERA',
           items: [
             'models/quantify-drivers/index',
             'models/quantify-drivers/usage',
@@ -61,6 +61,15 @@ const sidebars = {
             'models/CRAI/index',
             'models/CRAI/usage',
             'models/CRAI/data',
+          ],
+        },
+        {
+          type: 'category',
+          label: 'RMM-VAE',
+          items: [
+            'models/RMM-VAE/index',
+            'models/RMM-VAE/usage',
+            'models/RMM-VAE/data',
           ],
         },
       ],

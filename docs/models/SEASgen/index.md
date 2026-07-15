@@ -3,6 +3,12 @@ title: Data-driven Seasonal Climate Predictions via Variational Inference and Tr
 sidebar_label: Overview
 ---
 
+**Authors:** [Lluís Palma](https://orcid.org/0000-0002-3284-2152), [Alejandro Peraza](https://orcid.org/0009-0000-0164-6290), [David Civantos](https://orcid.org/0009-0002-6573-0066), [Amanda Duarte](https://orcid.org/0000-0002-9340-958X), [Stefano Materia](https://orcid.org/0000-0001-5635-2847), [Ángel G. Muñoz](https://orcid.org/0000-0002-2212-6654), [Jesús Peña-Izquierdo](https://orcid.org/0000-0002-9231-989X), [Laia Romero](https://orcid.org/0000-0001-6476-0875), [Albert Soret](https://orcid.org/0000-0002-1962-2972), [Markus Donat](https://orcid.org/0000-0002-0608-7288).
+
+**Links:** [Original Paper](https://arxiv.org/abs/2503.20466) | [GitLab Repository](https://gitlab.earth.bsc.es/es/seasgen)
+
+---
+
 ### Scientific Objective
 The primary scientific objective of this work is to evaluate a novel, probabilistic deep learning approach for seasonal climate prediction. Unlike weather forecasts, which predict daily conditions, seasonal predictions focus on multi-month anomalies and face severe challenges with observational data scarcity and climate non-stationarity (regime shifts).
 
@@ -44,16 +50,82 @@ The core architecture introduces an intrinsically probabilistic method to season
 
 
 <figure>
-![seasgen-methodology](/img/methodology-seasgen.png)
+![seasgen-methodology](/img/seasgen/methodology-seasgen.png)
 <figcaption>**Methodology overview**. *A, Illustration of the signal decomposition of the target variable Y. B, Schematic representation of the conditional Variational Autoencoder (cVAE) architecture. Two vision transformers (ViTs) encode the information from multiple climate fields into the latent space. The compressed latent space representation is then passed to the CNN decoder that reconstructs the predicted climate fields. C, Final
 model assembling, combining the interannual variability prediction from the cVAE model and the regressed
 LOESS trend. D, Tested model configurations, combining different spatial resolutions and target domains.*</figcaption>
 </figure>
 
-### Evaluation 
+### Evaluation  
+All outputs are written under the experiment directory, whose path is defined by `conf.exp_dir` in `paths.yml`. A typical run produces the following structure:
+ 
+```
+exps/
+└── <experiment_name>-<timestamp>/
+    ├── train_loss_0.pkl
+    ├── val_loss_0.pkl
+    ├── loss_curves_0.png
+    ├── loss_curves_by_term_0.png
+    ├── models/
+    │   └── <model_name>_0
+    ├── output/
+    │   ├── <model_name>_<var>_<dataset>_hcst_fcst.nc
+    │   └── <model_name>_<var>_<dataset>_obs_fcst.nc
+    └── imgs/
+        └── <model_name>/
+            └── metrics_<var>_<years>_<detrend>_fcst.png
+```
+ 
+#### `train_loss_0.pkl` / `val_loss_0.pkl`
+ 
+Serialised Python lists containing the training and validation loss values at each epoch. Load them with:
+ 
+```python
+import pickle
+with open("train_loss_0.pkl", "rb") as f:
+    train_loss = pickle.load(f)  # list of floats, one per epoch
+```
+ 
+#### `loss_curves_0.png`
+ 
+Plot of training and validation loss over epochs.
+ 
+#### `loss_curves_by_term_0.png`
+ 
+Same as above but broken down by individual loss terms.
+ 
+#### `models/<model_name>_0`
+ 
+Saved PyTorch model state dict. This is the checkpoint loaded during the test phase. The filename suffix `_0` corresponds to the training run index.
+ 
+
+#### `output/<model_name>_<var>_<dataset>_hcst_fcst.nc`
+ 
+NetCDF file containing the model's hindcast predictions. Dimensions are `(lon, lat, time, ensemble)` — the model generates an ensemble of `forecast_members=125` probabilistic predictions for each target year.
+ 
+One file is produced per output variable (e.g. `tas`, `pr`, `tos`, `zg500`, `zg300`).
+ 
+#### `output/<model_name>_<var>_<dataset>_obs_fcst.nc`
+ 
+NetCDF file containing the corresponding ERA5 observations, inverse-transformed to physical units. Used as the verification reference. Written only once per variable (subsequent runs with the same dataset skip writing if the file already exists).
+ 
+#### `imgs/<model_name>/metrics_<var>_<years>_<detrend>_fcst.png`
+ 
+Verification metric plots. One image is produced per combination of:
+ 
+- **variable** (`tas`, `pr`, etc.)
+- **verification period** (`1985-2021` or `2001-2021`)
+- **detrending** (`detrend` or `no_detrend`)
+
+<figure>
+![seasgen-methodology](/img/seasgen/examples-seasgen.png)
+<figcaption>**Examples of the obtained images**. *Verification metric plots for precipitation, geopotential height and surface air temperature with detrending. The complete series of figures can be found in the paper.*</figcaption>
+</figure>
+---
+
 
 ### Resources
-| Metric | Actually Used |
+| Metric | Usage |
 | :--- | :--- |
 | **Status** | `COMPLETED` |
 | **Time (Wallclock)** | 06:36:03 |

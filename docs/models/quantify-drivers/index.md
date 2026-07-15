@@ -6,7 +6,7 @@ sidebar_label: Overview
 
 **Authors:** [Arnau Garcia Mesa](https://orcid.org/0009-0004-5738-8867), [Lluís Palma](https://orcid.org/0000-0002-3284-2152), [Markus Donat](https://orcid.org/0000-0002-0608-7288), [Stefano Materia](https://orcid.org/0000-0001-5635-2847), [Raül Marcos Matamoros](https://orcid.org/0000-0002-3610-3445).
 
-**Links:** [Original Paper](https://egusphere.copernicus.org/preprints/2025/egusphere-2025-5392/) | [GitHub Repository](https://github.com/agarcimes8/QuantifyDriversHW) | [Datset for download](https://zenodo.org/uploads/18402053)  
+**Links:** [Original Paper](https://egusphere.copernicus.org/preprints/2025/egusphere-2025-5392/) | [Code Repository](https://github.com/agarcimes8/QuantifyDriversHW) | [Data repository](https://zenodo.org/uploads/18402053)  
 
 ---
 
@@ -27,7 +27,7 @@ To avoid including unrelated atmospheric variability, the selected domain is the
 
 
 <figure>
-![Large-scale data domain and locations selected for the local-scale data in the prediction target](/img/sites-screenshot.png)
+![Large-scale data domain and locations selected for the local-scale data in the prediction target](/img/quantify-drivers/sites-screenshot.png)
 <figcaption>*Large-scale data domain and locations selected for the local-scale data in the prediction target.*</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ To avoid including unrelated atmospheric variability, the selected domain is the
 To capture land-atmosphere coupling, the model architecture consists of a **Multi-Layer Perceptron (MLP)** for land and CO₂, and a **COnvNeXt Convolutional Neural Network (CNN)** for the spatial features of circulation. The AdamW optimiser is used for optimisation, and the Optuna Python package is used for hyperparameter tuning, with balanced accuracy minus final validation loss as the score. The model is then trained for 75 epochs, unless the validation loss increases for a total of five epochs.
 
 <figure>
-![Model architecture](/img/model.png)
+![Model architecture](/img/quantify-drivers/model.png)
 <figcaption>*Model architecture.*</figcaption>
 </figure>
 
@@ -75,7 +75,7 @@ To show the results, the most relevant plots generated are the following:
 - `Change in ROC curves for the Combined Model for different percentages of confidence`.  This plot evaluates how well the model can distinguish between an actual extreme heat day and a normal day.
 
 <figure>
-![`Extreme class prediction mean SHAP value percentage](/img/image.png)
+![`Extreme class prediction mean SHAP value percentage](/img/quantify-drivers/image.png)
 <figcaption>*Extreme class prediction mean SHAP value percentage.*</figcaption>
 </figure>
 

@@ -74,4 +74,3 @@ GIT_USER=<YOUR-GITHUB-USERNAME> npm run deploy
 4. Under **Branch**, select the `gh-pages` branch and `/ (root)`, then click **Save**.
 
 Wait a few minutes, and your site will be live at: `https://<YOUR-GITHUB-USERNAME>.github.io/<YOUR-REPO-NAME>/`!
-````</YOUR-GITHUB-USERNAME></YOUR-GITHUB-USERNAME></YOUR-GITHUB-USERNAME></YOUR-REPO-NAME></YOUR-GITHUB-USERNAME></YOUR-REPO-NAME></YOUR-GITHUB-USERNAME></YOUR-REPO-NAME></YOUR-GITHUB-USERNAME>

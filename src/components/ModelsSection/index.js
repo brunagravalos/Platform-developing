@@ -23,9 +23,15 @@ const MODELS = [
   },
   {
     title: 'CRAI',
-    description: 'Training and evaluating models to reconstruct missing values in climate data (e.g., HadCRUT4) based on a U-Net with partial convolutions',
+    description: 'Training and evaluating a model based on a U-Net with partial convolutions to reconstruct observations of European climate extremes (warm and cold days and nights) by leveraging Earth system model data from CMIP6 through transfer learning. This allows the reconstruction of observational datasets with missing values.',
     link: 'docs/models/CRAI',
     tag: 'ATMOSPHERIC SCIENCE'
+  },
+  {
+    title: 'RMM-VAE',
+    description: '',
+    link: 'docs/models/RMM-VAE',
+    tag: ''
   },
 ];
 

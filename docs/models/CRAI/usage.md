@@ -7,7 +7,6 @@ CRAI (Climate Reconstruction AI) can be executed either via the Command Line Int
 ## Installation and setup
 
 Ensure your environment has the required dependencies (PyTorch, xarray, dask, etc.). The easiest way to get started is by creating an Anaconda environment:
-Bash
 
 For standard use:
 ```
@@ -60,17 +59,13 @@ For evaluation (Infilling):
 Because CRAI has many configuration options, typing them all in the terminal can be tedious. You can save all your parameters in a standard text file and load them at runtime using the `-f` or `--load-from-file` flag (e.g., `crai-train -f my_config.txt`).
 
 
-mkdir -p ~/.cache/torch/hub/checkpoints/
-wget https://download.pytorch.org/models/vgg16-397923af.pth -O ~/.cache/torch/hub/checkpoints/vgg16-397923af.pth
-
-
 ## Configuration guide
 
 To help you configure your runs, the CLI arguments are broken down into logical categories below.
 
 ### 1. File paths
 
-TO configure where lives the data, and where are the results saved:
+To configure where lives the data, and where are the results saved:
 
     `--data-root-dir`: The main folder containing your data/, val/, and test/ folders.
 
@@ -98,7 +93,7 @@ To configure how the computer should execute the task:
 
 ### 3. Model architecture
 
-How is the U-Net structured?
+To configure how the U-Net is structured:
 
     `--encoding-layers` / `--pooling-layers`: Defines the depth of the neural network.
 
@@ -110,7 +105,7 @@ How is the U-Net structured?
 
 ### 4. Training hyperparameters
 
-How does the model learn?
+To configure the training specifics:
 
     `--max-iter`: The maximum number of training steps.
 
@@ -124,7 +119,6 @@ How does the model learn?
 
 ### 5. Evaluation and output
 
-How should the final predictions be handled?
 
     `--model-dir` / `--model-names`: (Evaluation only) Points the software to the specific trained models you want to use for infilling.
 
@@ -140,49 +134,41 @@ To help you understand the evaluation (infilling) process, CRAI includes a pre-c
 
 Before running the demo, ensure you have installed climatereconstructionAI as detailed in the Installation section.
 
-Directory Structure
+### Directory Structure
 
 Navigate to the demo folder in your repository. It contains:
 
-    demo_args.txt: A text file containing all the pre-configured input arguments.
+    `demo_args.txt`: A text file containing all the pre-configured input arguments.
 
-    outputs/: An empty directory where your final reconstructed files will be saved.
+    `outputs/`: An empty directory where your final reconstructed files will be saved.
 
-    images/: A directory containing pre-generated visual comparisons.
+    `images/`: A directory containing pre-generated visual comparisons.
 
-    ../data/test/: Contains the input climate dataset (tas_hadcrut_187709_189308.nc), which has a spatial resolution of 2.5º×5º (lat×lon).
+    `../data/test/`: Contains the input climate dataset (tas_hadcrut_187709_189308.nc), which has a spatial resolution of 2.5º×5º (lat×lon).
 
-Executing the Demo
+### Executing the Demo
 
 Because the paths inside demo_args.txt are relative, you must run these commands from inside the demo directory.
 
-Via CLI:
-Bash
-
+```Bash
 crai-evaluate --load-from-file demo_args.txt
+```
 
-Via Python:
-Python
-
-from climatereconstructionai import evaluate
-evaluate("demo_args.txt")
-
-Understanding the Outputs
+## Outputs
 
 Once the evaluation is complete, CRAI will generate 5 NetCDF (.nc) files and 1 PNG image inside the outputs/ folder. Here is exactly what each file represents:
 
-    demo_gt.nc (Ground Truth): The original, raw dataset fed into the software.
+    demo_gt.nc (ground truth): The original, raw dataset fed into the software.
 
-    demo_mask.nc (The Masks): A binary file showing exactly where the missing values are located (0 for missing, 1 for valid).
+    demo_mask.nc (masks): A binary file showing exactly where the missing values are located (0 for missing, 1 for valid).
 
-    demo_image.nc (The Input): The demo_gt.nc dataset after the missing value masks have been applied (this is what the AI actually "sees").
+    demo_image.nc (input): The demo_gt.nc dataset after the missing value masks have been applied (this is what the AI actually "sees").
 
-    demo_output.nc (The Raw AI Output): The pure prediction from the neural network. This file contains AI-generated values for every grid point, overwriting even the valid historical data.
+    demo_output.nc (raw AI output): The pure prediction from the neural network. This file contains AI-generated values for every grid point, overwriting even the valid historical data.
 
-    demo_infilled.nc (The Final Product): The successfully reconstructed dataset. This is a hybrid file: it keeps the original valid measurements from demo_gt.nc and only uses the AI's predictions to fill in the missing holes.
+    demo_infilled.nc (final result): The successfully reconstructed dataset. This is a hybrid file: it keeps the original valid measurements from demo_gt.nc and only uses the AI's predictions to fill in the missing holes.
 
     demo_infilled.1_0.png: A visual plot of the first timestep of your newly infilled dataset.
 
-Visualization
 
-You can visually verify the success of the AI infilling by comparing the original demo_gt.nc with the newly created demo_infilled.nc (for example, looking at the September 1877 timestep) to see how the U-Net seamlessly bridged the gaps in the historical data.
+
