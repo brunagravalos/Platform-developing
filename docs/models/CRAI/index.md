@@ -4,7 +4,7 @@ sidebar_label: Overview
 ---
 
 
-**Authors:** [Étienne Plésiat](https://orcid.org/0000-0003-2725-9998), [Robert J. H. Dunn](orcid.org/0000-0003-2469-5989), [Markus Donat](https://orcid.org/0000-0002-0608-7288), [Christopher Kadow](https://orcid.org/0000-0001-6537-3690).
+**Authors:** [Étienne Plésiat](https://orcid.org/0000-0003-2725-9998), [Robert J. H. Dunn](https://orcid.org/0000-0003-2469-5989), [Markus Donat](https://orcid.org/0000-0002-0608-7288), [Christopher Kadow](https://orcid.org/0000-0001-6537-3690).
 
 **Links:** [Original Paper](https://www.nature.com/articles/s41467-024-53464-2) | [Code Repository](https://github.com/FREVA-CLINT/climatereconstructionAI) | [Data repository](https://zenodo.org/records/13891336)
 
@@ -40,12 +40,12 @@ The reconstruction is powered by CRAI (Climate Reconstruction AI), a deep-learni
 
 ### Evaluation 
 
-The evaluation process produces an infilled climate dataset. More concretely, each evaluation process produces the following `outputs` folder, whith this content:
-- `demo_gt.nc` corresponds to the original dataset.
-- `demo_mask.nc` contains the mask corresponding to the missing values.
-- `demo_image.nc` is `demo_gt.nc` after applying the masks `demo_mask.nc`.
-- `demo_output.nc` is the dataset where all values (valid and missing values) are being infilled
-- `demo_infilled.nc` is the infilled dataset: it is the original dataset `demo_gt.nc` where the missing values have been replaced by the values from `demo_output.nc`
-- `demo_infilled.1_0.png` is a plot of the first timestep of `demo_infilled.nc`
+The evaluation process produces an infilled climate dataset. More concretely, each evaluation process produces the `outputs` folder, which has the following content:
+- `demo_gt.nc`: NetCDF corresponding to the original dataset.
+- `demo_mask.nc`: mask corresponding to the missing values.
+- `demo_image.nc`: original dataset with the mask of missing values applied.
+- `demo_output.nc`: dataset where valid and missing values are being infilled.
+- `demo_infilled.nc`: original dataset with the missing values replaced by the values from `demo_output.nc`.
+- `demo_infilled.1_0.png`: plot of the first timestep of `demo_infilled.nc`.
 
 
