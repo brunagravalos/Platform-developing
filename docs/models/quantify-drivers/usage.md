@@ -2,7 +2,8 @@
 title: How to use
 ---
 ## 1. Installation
-### Setup Repository
+
+### Setup repository
 The project repository is available in GitHub at this [link](https://github.com/agarcimes8/QuantifyDriversHW). To get started, clone the project and navigate to the directory:
 ```
 git clone https://github.com/agarcimes8/QuantifyDriversHW.git
@@ -16,7 +17,7 @@ This project uses uv for dependency management.
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
-_Note: Restart your shell to ensure uv is in your PATH._
+>**Note**: Restart your shell to ensure uv is in your PATH.
 
 2. **Create a Local Virtual Environment:**
 ```
@@ -31,6 +32,7 @@ uv sync
 ```bash
 source .venv/bin/activate
 ```
+---
 
 ## 2. Training, Evaluation & SHAP computing
 
@@ -45,7 +47,7 @@ The workflow for this project follows a pipeline designed to replicate the metho
 
 There are two available scripts to run these processes. The first one runs the entire pipeline end-to-end, while the second is modular (assuming weights exist). Both scripts utilize Hydra, meaning you can modify their behavior via the command line without changing the source code.
 
-#### 1. Full Pipeline (`training_evaluation_SHAP_pipeline.py`)
+### Full Pipeline (`training_evaluation_SHAP_pipeline.py`)
 
 This script executes the entire lifecycle: it loads data, trains a new model from scratch, evaluates it, and computes SHAP values.
 
@@ -64,17 +66,18 @@ uv run python "$SCRIPT_PATH"
 ```
 *Note: This will run using the defaults defined in conf/config.yaml. Specific file paths must be configured for your environment (see below).*
 
-#### 2. Evaluation & SHAP Only (`evaluation_SHAP_pipeline.py`)
+### Evaluation & SHAP Only (`evaluation_SHAP_pipeline.py`)
 This script assumes that you have some model weights saved and only does the model evalutaion and SHAP values computing.
 
+--- 
 
-### Configuration
+## 3. Configuration
 
 This project uses **Hydra** for configuration management. This strictly separates the code logic from experimental settings. You should not edit the Python code to change parameters; instead, use the configuration files or CLI overrides.
 
 The main configuration entry point is `conf/config.yaml`. It is composed of several groups:
 
-```
+```bash
 conf/
 ├── config.yaml
 ├── dataset/
@@ -83,7 +86,7 @@ conf/
 └── hyperparameters/
 ```
 
-#### 1. Configuration groups
+### Configuration groups
 
 | Group | Description | Default |
 | :--- | :--- | :--- |
@@ -94,13 +97,13 @@ conf/
 
 
 
-#### 2. Key Attributes
+### Key Attributes
 
 - `seed`: `(int)` The random seed for reproducibility.
 - `percentile`: `(str)` The extreme event threshold (e.g., "90p", "95p"). This determines which label file is loaded.
 - `epoch_config.epochs`: `(int)` Number of training epochs (default: 75).
 
-#### 3. Detailed Group Configuration
+### Detailed Group Configuration
 
 **A. Site**
 
@@ -152,9 +155,11 @@ If `default_hypms` is `False`, the data loading script will use the optimized va
 
 The hyperparameter tunning can be done with the script `HYPM_tunning.py`, inside the folder `hypm_tunning`. This script uses `optuna`to find the best parameter values for the model, by minimizing the `final_val_loss`. The hyperparameter files that were used for the training are saved on the folder `data_files` and can be directly used if that's prefered.
 
-### How to run
+---
 
-#### Changing Values via CLI
+## 4. How to run
+
+### Changing Values via CLI
 
 Hydra allows you to override any config value directly from the command line using dot notation.
 
@@ -166,7 +171,7 @@ Run with a specific `seed` and custom `learning rate`:
 ```
 python training_evaluation_SHAP_pipeline.py seed=42 hyperparameters.site_hypms.lr=0.0005
 ```
-#### Creating a New Default
+### Creating a New Default
 
 If you are moving to a new cluster and need to change the path configuration, or if you are running the code for the first time you can do the following:
 
@@ -176,7 +181,7 @@ If you are moving to a new cluster and need to change the path configuration, or
 
     3. Run with: ` uv run python training_evaluation_SHAP_pipeline.py paths=my_cluster`.
 
-#### Seeds
+### Seeds
 
 To reproduce the paper's ensemble results, you should run the pipeline multiple times with different seeds. The paper uses a standard ensemble of 20 seeds to plot the final results (e.g., generated from a master seed or a fixed list like given below). Hydra allows multirun calls with the -m flag, so you can run the pipeline with `uv run python training_evaluation_SHAP_pipeline.py -m seed=1234, ....`. You could also parallelize with the different seeds.
 Here is an example SLURM script that parallelizes with the list of 20 seeds used in the paper:
@@ -192,7 +197,10 @@ uv run python "$SCRIPT_PATH" seed=$CURRENT_SEED site=marrakech
 
 ```
 
-## 3. Visualization & Analysis
+---
+
+
+## 5. Visualization & Analysis
 
 To reproduce the figures from the paper, the project provides two notebooks. These are designed to aggregate the results from the multi-seed ensemble and generate plots. They also save in the `output_dirs` path a `.txt` files with the balanced accuracy for each site, among other results. 
 
@@ -207,7 +215,7 @@ uv pip install -e .
 ```
 *Select the **Python (quantifydrivers)** kernel when opening the notebooks.*
 
-### A. Ensemble Aggregation (`ensemble_processing.ipynb`)
+### Ensemble Aggregation (`ensemble_processing.ipynb`)
 Since the model is trained on 20 different seeds to ensure robustness, this notebook acts as the aggregator. It iterates through the results of all seeds defined in your configuration and performs two key tasks:
 
     - **Metric Aggregation:** It computes the mean and standard deviation for performance metrics (Accuracy, F1-Score, Precision, Recall) and SHAP values across the entire ensemble.
@@ -215,7 +223,7 @@ Since the model is trained on 20 different seeds to ensure robustness, this note
     - **Training Stability Plot:** It generates the Loss History plot, visualizing the mean training and validation loss curves (with standard deviation shading) to verify model convergence and check for overfitting.
 
 Output: Saves a processed dictionary containing the aggregated metrics and averaged SHAP values for the next step.
-### B. Final Figures (`main_plots.ipynb`)
+### Final Figures (`main_plots.ipynb`)
 
 This notebook loads the aggregated data produced by the previous step and generates the primary figures used to evaluate the scientific validity of the model:
 

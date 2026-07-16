@@ -29,7 +29,7 @@ const MODELS = [
   },
   {
     title: 'RMM-VAE',
-    description: '',
+    description: 'Combining PCA analysis and probability techniques to understand atmospheric patterns in Western Europe to predict heat extremes, explain and predict interannual temperature variability using seasonal regime frequencies and quantify the dynamical contribution of circulation changes.',
     link: 'docs/models/RMM-VAE',
     tag: ''
   },
