@@ -27,7 +27,7 @@ singularity build /home/singularity/crai_image.sif /home/singularity/crai_image.
 ```
 >**Note**. In most HPC clusters, for security reasons it is not possible to mount the image directly there. In this case, it is recommended to mount it locally, and then transfer it to where the code will be ran.
 
-
+----
 
 ## 2. Data preparation
 
@@ -37,6 +37,8 @@ CRAI expects your NetCDF (`.nc`) climate datasets to be organized into specific 
 - `test/` — used during **evaluation**.
 
 **Masks:** missing values are defined by mask files (`1` for valid data, `0` for missing data). These must match the dimensions of your climate datasets. If you don't provide explicit mask files, CRAI can automatically extract them from the NaN values in your climate dataset.
+
+---
 
 ## 3. Running the software
 
@@ -70,6 +72,8 @@ Because CRAI has many configuration options, typing them all in the terminal can
 ```bash
 crai-train -f my_config.txt
 ```
+
+---
 
 ## 4. Configuration guide
 
@@ -123,6 +127,9 @@ The CLI arguments are broken down into logical categories below.
 | `--partitions` / `--maxmem` | *(Evaluation only)* If your dataset is too large to evaluate at once, these options split the data along the time coordinate to prevent out-of-memory crashes. |
 | `--plot-results` | Automatically generates image plots of the reconstructed time indices for quick visual inspection. |
 
+
+---
+
 ## 5. Infilling process
 
 CRAI includes a pre-configured demo to help you understand the evaluation (infilling) process. This example infills missing monthly global temperature anomalies from the HadCRUT4 dataset for two specific historical dates: **September 1877** and **August 1893**.
@@ -145,6 +152,8 @@ Because the paths inside `demo_args.txt` are relative, you must run this command
 ```bash
 crai-evaluate --load-from-file demo_args.txt
 ```
+
+---
 
 ## 6. Outputs
 
