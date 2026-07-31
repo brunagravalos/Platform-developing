@@ -2,6 +2,17 @@
   "name": "my-website",
   "version": "0.0.0",
   "private": true,
+  "description": "Before you begin, ensure you have the following installed on your computer: * **[Node.js](https://nodejs.org/en/download/)**: (Version 20.0 or higher is recommended). This includes `npm`, the package manager you will use to install dependencies.",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.earth.bsc.es/ces/ait/expect-open-science-platform.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "docusaurus.config.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
@@ -14,8 +25,8 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "3.9.2",
-    "@docusaurus/preset-classic": "3.9.2",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
     "@mdx-js/react": "^3.0.0",
     "clsx": "^2.0.0",
     "prism-react-renderer": "^2.3.0",
@@ -25,6 +36,9 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "3.9.2",
     "@docusaurus/types": "3.9.2"
+  },
+  "engines": {
+    "node": ">=20.0"
   },
   "browserslist": {
     "production": [
@@ -37,8 +51,5 @@
       "last 3 firefox version",
       "last 5 safari version"
     ]
-  },
-  "engines": {
-    "node": ">=20.0"
   }
 }

@@ -33,6 +33,12 @@ const MODELS = [
     link: 'docs/models/RMM-VAE',
     tag: ''
   },
+  {
+    title: 'Observation-constrained projections',
+    description: 'test',
+    link: 'docs/models/Observation-constrained_projections',
+    tag: ''
+  },
 ];
 
 export default function ModelsSection() {

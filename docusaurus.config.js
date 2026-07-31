@@ -15,10 +15,7 @@ const config = {
   tagline: 'The EXPECT paltform to ensure reproducibility.',
   favicon: 'img/open-platform/favicon-new.ico',
 
-  // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
+  
 
   // Set the production url of your site here
   url: 'https://brunagravalos.github.io', 

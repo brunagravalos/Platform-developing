@@ -72,6 +72,15 @@ const sidebars = {
             'models/RMM-VAE/data',
           ],
         },
+        {
+          type: 'category',
+          label: 'Observation-constrained projections',
+          items: [
+            'models/Observation-constrained_projections/index',
+            'models/Observation-constrained_projections/usage',
+            'models/Observation-constrained_projections/data',
+          ],
+        },
       ],
     },
   ],
