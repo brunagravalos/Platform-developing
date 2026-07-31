@@ -33,6 +33,8 @@ uv sync
 source .venv/bin/activate
 ```
 
+---
+
 ## 2. Feature Selection, Prediction & SHAP computing
 
 The workflow for this project follows a pipeline designed to replicate the data-driven methodology from the associated paper. The process is divided into three distinct stages:
@@ -74,12 +76,13 @@ uv run --no-sync python3 -u /gpfs/scratch/bsc32/bsc214253/featsel/main/testsFS_2
 ```
 Note: This will run using the default inputs defined in conf/config.yaml. Specific file paths must be configured for your environment (see below).
 
+---
 
 ## 3. Configuration
 This project uses Hydra for configuration management. This strictly separates the code logic from experimental settings. You should not edit the Python code to change target regions; instead, use the configuration files or CLI overrides.
 
 The main configuration entry point is conf/config.yaml.
-### 1. Configuration Parameters
+### Configuration Parameters
 
 |Parameter |Description |	Example|
 | :--- | :--- | :--- |
@@ -89,7 +92,7 @@ The main configuration entry point is conf/config.yaml.
 |`output_dir` |	Directory where the output CSVs (SHAP values, predictions, selected features) will be saved.|`/path/to/results/`|
 
 
-### 2. How to use (CLI Overrides)
+### How to use (CLI Overrides)
 
 Hydra allows you to override any config value directly from the command line.
 
@@ -104,6 +107,8 @@ Run with a custom input path and output directory:
 ```
 uv run python testsFS_2022_refactored.py input_path="/new/path/data.csv" output_dir="./new_results"
 ```
+
+---
 
 ## 4. Outputs & Visualization
 
