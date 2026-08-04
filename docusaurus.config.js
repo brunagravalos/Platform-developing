@@ -18,12 +18,12 @@ const config = {
   
 
   // Set the production url of your site here
-  url: 'https://brunagravalos.github.io', 
+  url: 'https://rspguerra.github.io', 
   baseUrl: '/Platform-developing/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'brunagravalos', // Usually your GitHub org/user name.
+  organizationName: 'rspguerra', // Usually your GitHub org/user name.
   projectName: 'Platform-developing', // Usually your repo name.
 
   onBrokenLinks: 'throw',
