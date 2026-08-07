@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 **Authors:** [Julianna Carvalho-Oliveira](https://orcid.org/0000-0003-1222-0927), [Fiona Spuler](https://orcid.org/0009-0003-9358-0699), [Marlene Kretschmer](https://orcid.org/0009-0002-6573-0066).
 
-**Links:** [Original Paper](https://arxiv.org/abs/2503.20466) | [Zenodo Repository](https://zenodo.org/records/18312651)
+**Links:** [Original Paper](https://iopscience.iop.org/article/10.1088/1748-9326/ae499b) | [Zenodo Repository](https://zenodo.org/records/18312651)
 
 ---
 
