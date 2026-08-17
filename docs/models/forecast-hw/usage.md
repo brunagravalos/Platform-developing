@@ -10,7 +10,32 @@ git clone repository_url
 cd repository_name
 ```
 
-### Environment Setup
+### 1.1 Dependencies list
+
+The dependencies required to execute this project considering good packages compactibilities are:
+
+| Package | Version |
+|---|---|
+| Python | 3.8 |
+| pip | latest (unpinned) |
+| hydra-core | latest (unpinned) |
+| numpy | latest (unpinned) |
+| cartopy | 0.20.3 |
+| matplotlib | 3.4.3 |
+| xclim | 0.31.0 |
+| xarray | latest (unpinned) |
+| netcdf4 | 1.5.8 |
+| pandas | 1.3.5 |
+| cftime | 1.5.1 |
+| seaborn | 0.9.0 |
+| scikit-gstat | 1.0.1 |
+| scipy | 1.7.3 |
+| xgboost | 1.5.1 |
+| shap | 0.36.0 |
+| scikit-learn | latest (unpinned) |
+
+
+### 1.2 Environment Setup
 
 This project uses uv for dependency management.
 1. **Install uv** (if not installed):
@@ -31,6 +56,73 @@ uv sync
 4. **Activate venv**
 ```
 source .venv/bin/activate
+```
+
+### 1.3 Singularity Container setup
+
+Container build with singularity, from a *.def* file available within the repository files. For the container the environment was installed using miniconda3: 24.1.2-0.
+
+
+```bash
+# .Def file
+Bootstrap: docker
+From: continuumio/miniconda3:24.1.2-0
+
+%labels
+    Author Bruna
+    Version 1.0
+    Description feat_env - main analysis environment
+
+%post
+    # Update conda and set channels
+    conda update -n base -c conda-forge conda -y
+    conda config --add channels conda-forge
+    conda config --set channel_priority strict
+
+    # Create environment
+    conda create -n feat_env -y \
+        python=3.8 \
+        pip \
+        hydra-core \
+        numpy \
+        cartopy=0.20.3 \
+        matplotlib=3.4.3 \
+        xclim=0.31.0 \
+        xarray \
+        netcdf4=1.5.8 \
+        pandas=1.3.5 \
+        cftime=1.5.1 \
+        seaborn=0.9.0 \
+        scikit-gstat=1.0.1 \
+        scipy=1.7.3 \
+        xgboost=1.5.1 \
+        shap=0.36.0 \
+        scikit-learn \
+
+    # Activate env and install pip packages
+    . /opt/conda/etc/profile.d/conda.sh
+    conda activate feat_env
+
+    # Clean up to reduce image size
+    conda clean -afy
+    pip cache purge
+
+%environment
+    . /opt/conda/etc/profile.d/conda.sh
+    conda activate feat_env
+    export PATH="/opt/conda/envs/feat_env/bin:$PATH"
+```
+
+```bash
+# Container build command
+$ singularity build featsel_image.def 
+```
+
+Once built the container is ready to be used by the command, using as arguments season and region:
+
+```bash
+# Scrip execution using singularity container
+singularity exec --nv -B featsel_image.sif python3 -u testsFS_wfwd_FIXED_FEATURES_refactored.py -s "$season" -r "$region"
 ```
 
 ---
